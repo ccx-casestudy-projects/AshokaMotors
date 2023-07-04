@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Name</fullName>
+    <inlineHelpText>Vehicle Registration Number should be in This Format(eg:TS08FF5678)</inlineHelpText>
+    <trackHistory>false</trackHistory>
+</CustomField>

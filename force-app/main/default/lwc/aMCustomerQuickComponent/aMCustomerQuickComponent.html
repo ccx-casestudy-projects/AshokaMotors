@@ -1,0 +1,89 @@
+<template>
+  <lightning-card>
+    <c-header-comp></c-header-comp>
+      </lightning-card>
+  <lightning-card >
+   
+  <b><lightning-button  class="slds-align_absolute-center" variant="brand" label="Create / Search Customer"
+    title="Create Customer" onclick={showModalBox1} style="float: center;">
+ </lightning-button></b>
+</lightning-card>
+<template if:true={isShowModal1}>
+    <lightning-card >
+       <Lightning-card title="Select Type Of Customer">
+         
+                <b><lightning-radio-group
+                  style=" font-size: xx-large ;color:rgb(255, 70, 35) "
+                      options={options}
+                      value={selectedValue}
+                      onchange={handleChange}></lightning-radio-group></b>
+              </lightning-card>
+            
+              <template if:true={excustomer}>
+                <c-am-customer-detail-component></c-am-customer-detail-component>
+            </template>
+            <template if:true={newcust}>
+        <b><lightning-button  class="slds-align_absolute-center" variant="brand" label="Customer Quick Registration"
+            title="Create Customer" onclick={showModalBox} >
+         </lightning-button></b>
+         <template if:true={isShowModal}>
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+               <div class="slds-modal__container">
+                
+                 
+                  <!-- popup body  -->
+                  <lightning-card>
+                    <c-header-comp></c-header-comp>
+
+                    <div class="slds-align_absolute-center">
+                        <h1 class="cardClass" style="font-size: 24px;">New Customer Details</h1>
+                      </div>
+
+                      <div class="slds-grid slds-gutters">
+                        <div class="slds-col">
+                        <span>
+
+                        </span>
+                        </div>
+                        <div class="slds-col slds-align_absolute-center" >
+                        <span>
+                  <b><lightning-input label="First Name" name="FirstName"   
+                        onchange={handleUserNameChange1} ></lightning-input></b>
+                <b><lightning-input label="Last Name" name="LastName"  
+         onchange={handleUserNameChange2} ></lightning-input></b>
+        <b>  <lightning-input label="Email" name="Email"  
+         onchange={handleUserNameChange3} ></lightning-input></b>
+         <b><lightning-input label="Phone Number" name="Phone Number"  
+       onchange={handleUserNameChange4} ></lightning-input></b>
+       
+         
+           &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+          <div class="slds-align_absolute-center">
+             <lightning-button label="Cancel" title="Non-primary action" onclick={handleClick1} class="slds-m-left_x-small"></lightning-button>
+             <lightning-button variant="brand" label="Save" title="Primary action with lighter look" onclick={CreateRec} class="slds-m-left_x-small"></lightning-button>
+           </div>
+        </span>
+                        </div>
+                        <div class="slds-col">
+                        <span>
+                        </span>
+                        </div>
+                        </div>
+                      </lightning-card>
+                  <!-- popup footer -->
+                  <footer class="slds-modal__footer">
+                     <button class="slds-button slds-button_neutral" onclick={hideModalBox}>Close</button>
+                  </footer>
+               
+               </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+          </template>
+         </template>
+        </lightning-card>
+        <footer class="slds-modal__footer">
+          <button class="slds-button slds-button_neutral" onclick={hideModalBox1}>Close</button>
+       </footer>
+</template>
+
+</template>

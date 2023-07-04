@@ -1,0 +1,8 @@
+table  th{
+    text-align: center;
+    background: rgb(13,121,39);
+    color: whitesmoke; 
+}
+table td{
+    text-align: center;
+}

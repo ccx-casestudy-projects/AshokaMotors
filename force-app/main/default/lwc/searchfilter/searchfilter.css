@@ -1,0 +1,16 @@
+.image-container {
+    position: relative;
+  }
+  
+  .text-overlay {
+    position: absolute;
+    top: 90%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 13px;
+  }
+
+  .my-input {
+    width: 230px; /* Or any other size you want */
+}

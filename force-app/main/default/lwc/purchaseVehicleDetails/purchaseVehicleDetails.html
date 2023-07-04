@@ -1,0 +1,142 @@
+<template>
+    <!--Header-->
+    <lightning-card>
+        <c-header-comp></c-header-comp>
+        </lightning-card>
+        <lightning-card>
+        <b>
+            <!--Home Button-->
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col">
+                    <span  class="slds-p-left_medium">
+                      <lightning-icon icon-name="custom:custom107" size="x-medium" class="slds-size_1-of-9" onclick={CallMain} title="custom107">
+                      </lightning-icon>
+                   
+                      <b><label style="font-size: x-medium; padding: 0 3px ;vertical-align: bottom"  onclick={CallMain} >HOME</label></b>
+                    </span>
+                </div>
+                  <!--Page Header-->
+                <div class="slds-col">
+                    <span>
+                      <b><h1  style="font-size:x-large ; color: rgb(170, 26, 7) ;" >PURCHASED CAR DETAILS</h1></b>
+                    </span>
+                </div>
+            </div>
+        </b>
+        <br/>
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col slds-size_1-of-4 ">
+            <!-- Search Filter of Vehicle Status -->
+                <span>
+                    <b>  Status</b>
+                &ensp;&ensp;  <lightning-combobox field-id="id" variant="label-hidden" options={options1} onchange={handlesearchstatus} value={searchstatus} style="width: 250px;"></lightning-combobox>
+                </span>
+            </div>
+            <div class="slds-col slds-size_1-of-4 ">
+                <span>
+                    <b>Brand</b>
+                    <lightning-combobox field-id="id" variant="label-hidden" name="Brand" options={options2} onchange={handlesearchbrand} value={searchbrand} style="width: 250px;"></lightning-combobox>
+                </span>
+            </div>
+            <div class="slds-col slds-size_1-of-4 ">
+                <span>
+                    <b>Model</b>
+                    <lightning-combobox field-id="id" variant="label-hidden"  name="Model" options={options3} onchange={handlesearchmodel} value={searchmodel} style="width: 250px;"></lightning-combobox>
+                </span>
+            </div>
+            <div class="slds-col slds-size_1-of-4 ">
+                <span>
+                    <b>Amount</b>
+                    <lightning-combobox field-id="id" variant="label-hidden" options={options4} onchange={handlesearchamount} value={searchamount} style="width: 250px;"></lightning-combobox>
+                </span>
+            </div>
+         </div>
+ 
+        <br/>
+
+        <!-- Retrieving the Data  -->
+        <div class="myTable1 ">
+            <b class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered">
+                <lightning-datatable
+                    key-field="Id"
+                    data={Vehicles.data}
+                    columns={columns}
+                    sorted-by={sortBy} 
+                    sorted-direction={sortDirection} 
+                    onrowaction={handleRowAction}
+                    onsort={doSorting} 
+                    wrap-text-max-lines=2    
+                    hide-checkbox-column="true" 
+                ></lightning-datatable>
+            </b>
+        </div>
+         <!--Vehicle No  popup-->
+        <template if:true={isModalOpen}>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+            <section
+                role="dialog"
+                tabindex="-1"
+                aria-labelledby="modal-heading-01"
+                aria-modal="true"
+                aria-describedby="modal-content-id-1"
+                class="slds-modal slds-fade-in-open"
+            >
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header">
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                            title="Close" onclick={hideModalBox}>
+                            <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse"
+                                size="small"></lightning-icon>
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate"
+                            style="font-size:x-large; font-weight:bold; color: rgb(170,26,7);">EDIT VEHICLE PRICE </h2>
+                    </header>
+                    <!-- Popup body -->
+                    <lightning-card>
+                        <div style="margin-top: -40px;">
+                        <div class="slds-grid slds-gutters">
+                            <div class="slds-align_absolute-center">
+                                <lightning-record-edit-form object-api-name="Product2" record-id={recordId} onsuccess={handleSuccess}>
+                                    <lightning-messages></lightning-messages>
+
+                                    <b> <lightning-layout>
+                                        <lightning-layout-item class="slds-p-around_xx-large">
+                                        <div>
+                                            <lightning-output-field field-name="Name"></lightning-output-field>
+                                        </div>
+                                        <div>
+                                            <lightning-input-field field-name="FinalAmount_beforeProfit__c"></lightning-input-field>
+                                        </div>
+                                        <div>
+                                            <lightning-input-field field-name="AM_Purchase_Funded_From__c"></lightning-input-field>
+                                        </div>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item class="slds-p-around_xx-large">
+                                            <div>
+                                                <lightning-input-field field-name="AM_Fuel_Cost__c"></lightning-input-field>
+                                            </div>
+                                            <div>
+                                                <lightning-input-field field-name="AM_Profit__c"></lightning-input-field>
+                                            </div>
+                                            
+                                        </lightning-layout-item>
+                                        </lightning-layout>
+                                    </b>
+                                    <div class="slds-m-bottom_medium">
+                                        <lightning-button class="slds-align_absolute-center" type="submit" label="Save"
+                                          variant="brand-outline" onclick={handleSuccess}></lightning-button>
+                                      </div>
+                    
+                                </lightning-record-edit-form>
+                               
+                            </div>
+                        </div>
+                        </div>
+                    </lightning-card>
+                   
+                </div>
+            </section>
+        </template>
+    </lightning-card>
+</template>

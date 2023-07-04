@@ -1,0 +1,15 @@
+.THIS .custom-box {
+    height: 800px; /* adjust height as needed */
+    width: 100%;
+    border: 1px solid #d8dde6;
+    overflow:scroll;
+    margin: 10px 0 20px;
+}
+.THIS .custom-box1 {
+    background-color: #ff461e;
+    height: 350px; /* adjust height as needed */
+    width: 300px;
+    border: 1px solid black;
+    overflow: scroll;
+    margin: 10px; /* adjust padding as needed */
+}

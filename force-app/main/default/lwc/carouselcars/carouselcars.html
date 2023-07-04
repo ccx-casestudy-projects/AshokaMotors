@@ -1,0 +1,106 @@
+<template>
+
+    <lightning-card>
+        <c-header-comp></c-header-comp>
+    </lightning-card>
+
+    <lightning-card>
+        <div>
+            <b>
+                <h1 class="slds-align_absolute-center" style="font-size:large ; color: rgb(170, 26, 7) ;">CAR DETAILS
+                </h1>
+            </b>
+
+            <lightning-layout>
+
+                <lightning-layout-item padding="around-small">
+                    <div>
+                        <b><lightning-button class="slds-float_left" label="<--Back"
+                                onclick={CallMain}></lightning-button>
+                        </b>
+                    </div>
+
+                </lightning-layout-item>
+
+                <lightning-layout-item padding="around-small">
+                    <div>
+
+                    </div>
+                </lightning-layout-item>
+
+                <lightning-layout-item padding="around-small" class="slds-size_1-of-2">
+                    <div class="slds-box slds-p-around_medium slds-text-align_center" style="max-width:600px;">
+                        <div style="max-width:550px; height:400px;">
+                            <!--
+                                <img src={BrandIcon} alt="lampIcon" class="customIcon">
+                        -->
+
+                            <lightning-carousel disable-auto-scroll>
+                                <template for:each={imageRecords} for:item="imageUrl">
+
+                                    <lightning-carousel-image key={imageUrl} src={imageUrl}
+                                        alternative-text={imageBrand}>
+                                    </lightning-carousel-image>
+
+                                </template>
+                            </lightning-carousel>
+                        </div>
+
+                    </div>
+                </lightning-layout-item>
+
+
+                <lightning-layout-item padding="around-small">
+                    <div>
+
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-small">
+                    <div>
+
+                    </div>
+                </lightning-layout-item>
+
+                <lightning-layout-item padding="around-small" class="slds-size_1-of-3" style="text-align: right;">
+                    <div>
+                        <p class="slds-align_absolute-center slds-text-title_bold" style="font-size:x-large">{imageMake}
+                            {imageBrand} </p>
+                        <p class="slds-align_absolute-center slds-text-title_bold" style="font-size:x-large">
+                            {imageModel} </p>
+
+                        <br />
+                        <lightning-formatted-number format-style="currency" currency-code="INR"
+                            style="font-size:x-large"
+                            class="slds-align_absolute-center slds-text-color_error slds-text-title_bold"
+                            value={imagePrice}></lightning-formatted-number>
+
+                        <br />
+                        <br />
+
+                        <p class="slds-align_absolute-center " style="font-size:large ; font-weight:700">
+                            {imageFuelType}
+                        </p><br />
+
+                        <p class="slds-align_absolute-center " style="font-size:large; font-weight:700">
+                            {imageTransType}
+                        </p><br />
+
+                        <p class="slds-align_absolute-center " style="font-size:large ; font-weight:700">
+                            {imageKmsDriven} Kms</p><br />
+                        <p class="slds-align_absolute-center "
+                            style="color: rgb(0, 0, 0); font-size:large ; font-weight:700">
+                            {imageVehCapacity}</p>
+
+
+                        <br />
+                        <p class="slds-box slds-p-around_small  slds-align_absolute-center slds-text-title_bold"
+                            style="color: rgb(0, 0, 0); font-size:x-large">
+                            Pre-Owned By {imageTypeCar}</p>
+
+                    </div>
+                </lightning-layout-item>
+
+            </lightning-layout>
+        </div>
+    </lightning-card>
+</template>

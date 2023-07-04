@@ -1,0 +1,29 @@
+table  th{
+    text-align: center;
+    background: rgb(13,121,39);
+    color: whitesmoke;       
+}
+table td{
+    text-align: center;
+}
+.Available
+{
+    color:rgb(24, 245, 13);
+}
+.Dealer-Location{
+    color:blue
+}
+
+.In-Service{
+ color:rgb(0, 200, 255);
+}
+
+.In-Repair
+{
+ color:rgb(222, 32, 181);
+}
+
+.Sold-To-Customer
+{
+    color:red
+}

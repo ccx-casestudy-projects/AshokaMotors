@@ -1,0 +1,159 @@
+<template>
+    <lightning-card>
+        <c-header-comp></c-header-comp>
+    </lightning-card>
+    <lightning-card>
+
+        <template if:true={isModalOpen}>
+            <!-- Modal/Popup Box LWC starts here -->
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <!-- Modal/Popup Box LWC header here -->
+                    <header class="slds-modal__header">
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                            title="Close" onclick={closeModal}>
+                            <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse"
+                                size="small"></lightning-icon>
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <div class="slds-grid slds-gutters">
+                            <!-- <div class="slds-align_left-center slds-p-left_large">
+                                <b><lightning-button label="<-Back" variant="destructive"
+                                        onclick={handleback}></lightning-button></b>
+                            </div>-->
+                            <div class="slds-align_absolute-center">
+                                <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate"
+                                    style="font-size:x-large; font-weight:bold; color: rgb(170,26,7); text-decoration:underline; margin-left:-20px;">
+                                    SEARCH VEHICLE TO EDIT</h2>
+                            </div>
+                        </div>
+
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+
+                        <lightning-card>
+                            <b>
+                               <!--  <lightning-input fieldid="id" label="Search Vehicle Number" type="search" onchange={handleSearchNumber} value={vehNum} required
+                                    placeholder="Search Vehicle Number here" style="font-size: medium;"></lightning-input>
+                                 -->
+                                    <div class="slds-box">  
+                                        <c-trail-lookup-cmp lookup-label="Search Vehicle Number" object-api-name="Product2" icon-name="standard:account"  
+                                          onrecordselection={onAccountSelection}></c-trail-lookup-cmp>  
+                                      </div>  
+                                   <!--   <div class="slds-box">  
+                                        Selected Vehicle Number : {accountName}  
+                                        Selected Vehicle Id  : {accountRecordId}  
+                                      </div>  -->
+                            </b>
+                            <br />
+                            <lightning-button class="slds-align_absolute-center" label="Search Vehicle" variant="brand"
+                                onclick={handlesearch}></lightning-button>
+                        </lightning-card>
+                    </div>
+
+
+                    <!--   <footer class="slds-modal__footer">
+                        <button class="slds-button slds-button_neutral" onclick={closeModal}>Close</button>
+                    </footer>-->
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </template>
+
+        <!--Updateing Record-->
+        <template if:true={isUpdateBox}>
+            <div class="slds-grid slds-gutters">
+                <div class="slds-align_left-center slds-p-left_large">
+                    <b><lightning-button label="<-Back" variant="destructive"
+                            onclick={handleback}></lightning-button></b>
+                </div>
+                <div class="slds-align_absolute-center">
+                    <b>
+                        <h1 class="cardClass"
+                            style="font-size: 24px; text-decoration:underline; color: rgb(170,26,7); font-family:  Verdana, Arial, Helvetica, sans-serif; ">
+                            EDIT VEHICLE DETAILS</h1>
+                    </b>
+                </div>
+            </div>
+            <div class="slds-grid slds-gutters">
+                <div class=" slds-align_absolute-center">
+
+
+                    <lightning-record-edit-form object-api-name="Product2" record-id={recordId}
+                        onsuccess={handleSuccess}>
+                        <lightning-messages></lightning-messages>
+
+
+                        <lightning-layout>
+                            <lightning-layout-item class="slds-p-around_xx-large">
+                                <div>
+                                    <label for="CustomerDetails"><b>Vehicle Registration Number</b></label>
+                                    <lightning-output-field for="CustomerDetails" variant="label-hidden"
+                                        field-name="Name"></lightning-output-field>
+                                </div>&ensp;
+                                <div>
+                                    <label for="CustomerDetails"><b>Vehicle Status</b></label>
+                                    <lightning-input-field for="CustomerDetails" variant="label-hidden"
+                                        field-name="AM_Vehicle_Status__c" required></lightning-input-field>
+                                </div>&ensp;
+                                <div>
+                                    <label for="CustomerDetails"><b>Profit</b></label>
+                                    <lightning-input-field for="CustomerDetails" variant="label-hidden"
+                                        field-name="AM_Profit__c"></lightning-input-field>
+                                </div>&ensp;
+                                <div>
+                                    <label for="CustomerDetails"><b>Fuel Cost</b></label>
+                                    <lightning-input-field for="CustomerDetails" variant="label-hidden"
+                                        field-name="AM_Fuel_Cost__c"></lightning-input-field>
+                                </div>&ensp;&ensp;
+                                <div>
+                                    <label for="CustomerDetails"><b>Repair Required</b></label>
+                                    <lightning-input-field for="CustomerDetails" variant="label-hidden"
+                                        field-name="AM_Repair_Required__c"></lightning-input-field>
+                                </div>
+                            </lightning-layout-item>
+                            <lightning-layout-item class="slds-p-around_xx-large">
+                                <div>
+                                    <label for="CustomerDetails"><b>Vehicle Registration Date</b></label>
+                                    <lightning-input-field for="CustomerDetails" variant="label-hidden"
+                                        field-name="AM_Vehicle_Registration_Date__c"></lightning-input-field>
+                                </div>&ensp;
+                                <div>
+
+                                    <label for="CustomerDetails"><b>Vehicle Variant</b></label>
+                                    <lightning-input-field for="CustomerDetails" variant="label-hidden"
+                                        field-name="AM_Variant__c" required></lightning-input-field>
+                                </div>&ensp;
+                                <div>
+                                    <label for="CustomerDetails"><b>KMS Travelled</b></label>
+                                    <lightning-input-field for="CustomerDetails" variant="label-hidden"
+                                        field-name="AM_Kms_Driven__c"></lightning-input-field>
+                                </div>&ensp;
+                                <div>
+                                    <label for="CustomerDetails"><b>Minimum Selling Price</b></label>
+                                    <lightning-input-field for="CustomerDetails" variant="label-hidden"
+                                        field-name="AM_Minimum_Sell_Price__c"></lightning-input-field>
+                                </div>&ensp;
+                                <div>
+                                    <label for="CustomerDetails"><b>Make Year</b></label>
+                                    <lightning-input-field for="CustomerDetails" variant="label-hidden"
+                                        field-name="AM_Make_Year__c"></lightning-input-field>
+                                </div>
+
+                            </lightning-layout-item>
+                        </lightning-layout>
+                        <div class="slds-m-top_medium">
+                            <lightning-button class="slds-align_absolute-center" type="submit" label="Save"
+                                variant="brand-outline" onchange={handleSuccess}></lightning-button>
+                        </div>
+
+
+                    </lightning-record-edit-form>
+
+                </div>
+            </div>
+        </template>
+
+    </lightning-card>
+</template>

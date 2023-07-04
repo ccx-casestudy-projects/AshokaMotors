@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Vehicle_Engine_No</fullName>
+    <active>false</active>
+    <description>Vehicle Engine Number should be 17 Digits.</description>
+    <errorConditionFormula>NOT( REGEX( AM_Engine_Number__c,&quot;^[A-Z0-9]{17}&quot;) )</errorConditionFormula>
+    <errorDisplayField>IsActive</errorDisplayField>
+    <errorMessage>Vehicle Engine Number should be 17 Digits.</errorMessage>
+</ValidationRule>

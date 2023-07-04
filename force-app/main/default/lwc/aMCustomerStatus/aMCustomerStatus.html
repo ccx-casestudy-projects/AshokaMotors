@@ -1,0 +1,54 @@
+<template>
+  <lightning-card>
+    <c-header-comp></c-header-comp>
+      </lightning-card>
+  <lightning-card>   
+      
+      <b><div style="text-align:center;">  
+          <h1 style=" font-size: x-large ; color:rgb(170,26,7)">Lead Conversion</h1></div></b>
+      
+         <b> <table class="slds-table slds-table_cell-buffer slds-table_bordered" style="font-size:16px;">
+              <thead>
+                  <tr class="slds-line-height_reset" >
+                    <th class="" scope="col">
+                      <div class="slds-truncate" title="Customer Name">Customer Name</div>
+                    </th>
+                    <th class="" scope="col">
+                      <div class="slds-truncate" title="Customer Phone">Customer Phone</div>
+                    </th>
+                    <th class="" scope="col">
+                      <div class="slds-truncate" title="Customer Status">Customer Status</div>
+                    </th>
+                    </tr>
+                </thead>
+                <tbody>
+     
+                  <template for:each={records} for:item ='record'>
+                  <tr class="" key = {record.Id} data-recordid={record.Id} style="font-size:14px;" >
+                   
+                          <td data-label="Customer Name">
+                              <div class="slds-cell-wrap"> {record.Name} </div>
+                          </td>
+                          <td data-label="Custome Phone">
+                              <div class="slds-cell-wrap"> {record.Phone} </div>
+                          </td>
+                          <td data-label="">
+                            <div class="slds-cell-wrap"> 
+                              
+                          <div class="progress-indicator-container">
+                            <lightning-progress-indicator current-step={currentvalue}  type="path" variant="path">
+                              <lightning-progress-step label="Registered" value="1"   data-recordid={record.Id}   onclick={pathHandler} class={currentvalue >= 1 ? 'slds-is-completed' : ''></lightning-progress-step>
+                              <lightning-progress-step label="Working - Contacted" value="2"   data-recordid={record.Id}  onclick={pathHandler} class={currentvalue >= 1 ? 'slds-is-completed' : ''></lightning-progress-step>
+                              <lightning-progress-step label="Closed - Converted" value="3"  data-recordid={record.Id}  onclick={pathHandler} class={currentvalue >= 1 ? 'slds-is-completed' : ''></lightning-progress-step>
+                              <lightning-progress-step label="Closed - Not Converted" value="4"   data-recordid={record.Id}  onclick={pathHandler} class={currentvalue >= 1 ? 'slds-is-completed' : ''></lightning-progress-step>
+                          </lightning-progress-indicator>
+                          </div>
+                          
+            </div>
+                        </td>
+                        </tr>
+                          </template>
+                          </tbody>
+          </table> </b>      
+</lightning-card>
+</template>

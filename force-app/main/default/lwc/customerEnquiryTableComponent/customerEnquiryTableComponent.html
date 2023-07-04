@@ -1,0 +1,106 @@
+<template>
+  <lightning-card>
+    <c-header-comp></c-header-comp> </lightning-card>
+    <lightning-card> 
+       <!--Page Header--> 
+       <b><h1 style=" font-size: xx-large ;text-align:center; color:rgb(170,26,7)">Customer Enquiry Details</h1></div></b><br/>
+       <!--Displaying the Fields Names-->
+       <b> <table class="slds-table slds-table_cell-buffer slds-table_bordered" style="font-size:16px;">
+       <thead>
+
+        <tr class="slds-line-height_reset">
+       <th class="" scope="col">
+      <div class="slds-truncate" title="Customer Name">Customer Name</div>
+       </th>
+       <th class="" scope="col">
+       <div class="slds-truncate" title="Customer Phone">Customer Phone</div>
+       </th>
+      <th class="" scope="col">
+       <div class="slds-truncate" title=" Customer Status">Customer Status </div>
+      </th>
+   <th class="" scope="col">
+   <div class="slds-truncate" title="Customer Enquiry id"> Customer Enquiry id</div>
+   </th>
+    <th class="" scope="col">
+   <div class="slds-truncate" title="BrandOf Purchase">Brand</div>
+     </th> 
+      <th class="" scope="col">
+       <div class="slds-truncate" title="Make year"> Make year</div>
+      
+  </th> 
+      <th class="" scope="col">
+      
+     <div class="slds-truncate" title="Customer Enquiry Status">Customer Enquiry Status</div>
+      
+    </th>
+   <th class="" scope="col">
+  <div class="slds-truncate" title="Customer Update Details"> Customer Update Details</div>
+   </th>
+   <th class="" scope="col" style="text-align:center">
+    <div class="slds-truncate" title="View Cars">View Cars</div>
+  </th>
+  <th class="" scope="col" style="text-align:center">
+    <div class="slds-truncate" title="Delete">Delete</div>
+  </th>
+  </tr>
+      </thead>
+     <tbody>
+       <template for:each={records} for:item ='record'>
+   <tr class="" key = {record.Id} style="font-size:14px;" >
+      <td data-label="Customer Name">
+     <div class="slds-cell-wrap"> {record.AM_Customer__r.Name} </div>
+   </td>
+  <td data-label="Custome Phone">
+      <div class="slds-cell-wrap"> {record.AM_Customer__r.Phone} </div>
+    </td>
+   <td data-label="Customer Status">
+     <div class="slds-cell-wrap"> {record.AM_Customer__r.Status}  </div>
+       </td>
+      <td data-label="Customer Enquiry Id">
+       <div class="slds-cell-wrap"> {record.Name} </div>
+       </td>
+      <td data-label="Brand">
+    <div class="slds-cell-wrap"> {record.AM_Brand__c} </div>
+      </td> 
+    <td data-label="Make Year">
+     <div class="slds-cell-wrap"> {record.AM_Make_Year_c__c} </div>
+       </td> 
+       <td data-label="Customer Enquiry Status">
+       <div class="slds-cell-wrap">{record.AM_Customer_Enquiry_Status__c}</div>
+     </td>
+  <!--Update Button-->
+  <!--Update The Customer Details-->
+   <td data-label="Customer Update Details">
+      <div class="slds-cell-wrap"><c-am-customer-detail-component></c-am-customer-detail-component></div>
+       </td>
+
+       <td data-label="itemstatus" style="text-align:center">
+        <b> <lightning-button
+             label="View Cars" 
+             variant="brand"
+             onclick={handleButtonClick}
+             value={record.Id}
+             
+         ></lightning-button></b>
+         </td>
+
+         <td data-label="itemstatus" style="text-align:center">
+          <b> <lightning-button
+               label="Delete" 
+               variant="destructive"
+               onclick={handleButtonClick1}
+               value={record.Id}
+               
+           ></lightning-button></b>
+           </td>
+  <!--All Cars Button-->
+  <!--To View All Cars
+   <td data-label="All Cars">
+    <div class="slds-cell-wrap"><c-am-customer-detail-component></c-am-customer-detail-component></div>
+     </td>-->
+      </tr>
+      </template>
+    </tbody>
+      </table> </b>
+   </lightning-card>
+     </template>

@@ -1,0 +1,124 @@
+<template>
+  <lightning-card> 
+       <!--Page Header--> 
+       <h1 style=" font-size: x-large ; color:rgb(170,26,7)">Customer Enquiry Details</h1></div></b>
+       <!--Displaying the Fields Names-->
+       <b> <table class="slds-table slds-table_cell-buffer slds-table_bordered" style="font-size:16px;">
+       <thead>
+        <tr class="slds-line-height_reset">
+       <th class="" scope="col">
+      <div class="slds-truncate" title="Customer Name">Customer Name</div>
+       </th>
+       <th class="" scope="col">
+       <div class="slds-truncate" title="Customer Phone">Customer Phone</div>
+       </th>
+      <th class="" scope="col">
+       <div class="slds-truncate" title=" Customer Status">Customer Status </div>
+      </th>
+   <th class="" scope="col">
+   <div class="slds-truncate" title="Customer Enquiry id"> Customer Enquiry id</div>
+   </th>
+    <th class="" scope="col">
+   <div class="slds-truncate" title="BrandOf Purchase">Brand</div>
+     </th> 
+      <th class="" scope="col">
+       <div class="slds-truncate" title="Make year"> Make year</div>
+      
+  </th>
+      
+  <th class="" scope="col">
+      
+     <div class="slds-truncate" title="Kilometers Travelled"> Kilometers Travelled</div>
+      
+         </th>
+  
+      <th class="" scope="col">
+      
+     <div class="slds-truncate" title="AM Customer Enquiry Status"> AM Customer Enquiry Status</div>
+      
+    </th>
+      
+   <th class="" scope="col">
+      
+   <div class="slds-truncate" title="Convert"> Convert </div>
+      
+      </th>
+      
+   <th class="" scope="col">
+      
+  <div class="slds-truncate" title="Customer Update  Details"> Customer Update  Details</div>
+      
+  </th>
+      
+   </tr>
+      
+      </thead>
+      
+      <tbody>
+      
+    
+      
+    <template for:each={records} for:item ='record'>
+      
+   <tr class="" key = {record.Id} style="font-size:14px;" >
+      
+   
+      
+  <td data-label="Customer Name">
+      
+     <div class="slds-cell-wrap"> {record.AM_Customer__r.Name} </div>
+      
+  </td>
+      
+  <td data-label="Custome Phone">
+      
+     <div class="slds-cell-wrap"> {record.AM_Customer__r.Phone} </div>
+      
+    </td>
+   <td data-label="Customer Status">
+      
+     <div class="slds-cell-wrap"> {record.AM_Customer__r.Status}  </div>
+       </td>
+      <td data-label="Customer Enquiry Id">
+       <div class="slds-cell-wrap"> {record.Name} </div>
+       </td>
+      <td data-label="Brand">
+    <div class="slds-cell-wrap"> {record.AM_Brand__c} </div>
+      </td> 
+    <td data-label="Make Year">
+     <div class="slds-cell-wrap"> {record.AM_Make_Year_c__c} </div>
+       </td> 
+      <td data-label="Kilometers Travelled">
+   <div class="slds-cell-wrap"> {record.KMS_Travelled_c__c} </div>
+       </td>
+      
+      <td data-label="AM Customer Enquiry Status">
+      
+      <div class="slds-cell-wrap">{record.AM_Customer_Enquiry_Status__c}</div>
+     </td>
+       <td data-label="Customer Convert">
+     <div class="slds-cell-wrap"><lightning-button
+      
+       value={AM_Customer__r.id}
+      
+    class="slds-align_absolute-center"
+      
+     variant="brand"
+   type="submit"
+      
+    name="convert"
+       label="convert"
+      
+     onclick={convert} >
+     </lightning-button></div>
+      </td>
+   <td data-label="Customer Update Details">
+      <div class="slds-cell-wrap"><c-am-customer-detail-component></c-am-customer-detail-component></div>
+       </td>
+      
+      </tr>
+      </template>
+    </tbody>
+      </table> </b>
+   </lightning-card>
+     </template>

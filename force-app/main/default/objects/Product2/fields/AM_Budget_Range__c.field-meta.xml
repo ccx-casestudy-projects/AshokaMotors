@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AM_Budget_Range__c</fullName>
+    <externalId>false</externalId>
+    <label>AM Budget Range</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Under 3 Lakh</fullName>
+                <default>false</default>
+                <label>Under 3 Lakh</label>
+            </value>
+            <value>
+                <fullName>3-4 Lakh</fullName>
+                <default>false</default>
+                <label>3-4 Lakh</label>
+            </value>
+            <value>
+                <fullName>4-5 Lakh</fullName>
+                <default>false</default>
+                <label>4-5 Lakh</label>
+            </value>
+            <value>
+                <fullName>5-6 Lakh</fullName>
+                <default>false</default>
+                <label>5-6 Lakh</label>
+            </value>
+            <value>
+                <fullName>6-8 Lakh</fullName>
+                <default>false</default>
+                <label>6-8 Lakh</label>
+            </value>
+            <value>
+                <fullName>8-10 Lakh</fullName>
+                <default>false</default>
+                <label>8-10 Lakh</label>
+            </value>
+            <value>
+                <fullName>Above 10 Lakh</fullName>
+                <default>false</default>
+                <label>Above 10 Lakh</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

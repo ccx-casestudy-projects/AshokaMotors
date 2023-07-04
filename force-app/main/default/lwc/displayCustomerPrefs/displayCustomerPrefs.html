@@ -1,0 +1,28 @@
+<template>
+        <lightning-card>
+        
+             <!-- Page Title Header -->
+             <b>
+                <div style="text-align:center;">
+                    <h1 style="font-size: x-large; color:rgb(170,26,7)">
+                        <lightning-button icon-name="standard:home" class="slds-float_left slds-p-left_medium " 
+                        label="Home" onclick={CallMain} style="font-size:small"></lightning-button>                      
+                    Customer Enquiry Details</h1>
+                </div>
+            </b>
+         <br/>
+            <div class="myTable1">
+                <lightning-datatable
+                    key-field="id"
+                    data={records}
+                    columns={columns}
+                    onrowaction={handleRowAction}
+                  sorted-by={sortBy} 
+                  sorted-direction={sortDirection} 
+                  onsort={doSorting} 
+                  hide-checkbox-column="true">
+               
+                </lightning-datatable>
+            </div>
+        </lightning-card>
+</template>

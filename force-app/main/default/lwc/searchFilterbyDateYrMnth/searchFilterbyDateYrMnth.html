@@ -1,0 +1,33 @@
+<template>
+    <lightning-combobox
+            name="SELECT YEAR"
+            label="Year"
+            value={value}
+            placeholder="Select Year"
+            options={options}
+            onchange={YearhandleChange} ></lightning-combobox>
+
+    <p>Selected Year is: {value}</p>
+<br/>
+
+    <lightning-combobox
+    name="SELECT MONTH"
+    label="Month"
+    value={value1}
+    placeholder="Select Month"
+    options={options}
+    onchange={MonthhandleChange} ></lightning-combobox>
+
+<p>Selected Month is: {value1}</p>
+<br/>
+
+<lightning-combobox
+            name="SELECT DATE"
+            label="Date"
+            value={value2}
+            placeholder="Select Date"
+            options={options}
+            onchange={DatehandleChange} ></lightning-combobox>
+
+    <p>Selected Date is: {value2}</p>
+</template>

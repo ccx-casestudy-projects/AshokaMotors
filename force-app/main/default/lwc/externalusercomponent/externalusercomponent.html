@@ -1,0 +1,47 @@
+<template>
+    <lightning-card>
+   <div class="slds-col slds-size_1-of-2">
+        <span>
+  
+          <template if:true={records}>
+            <div class="slds-card__body_inner">
+              
+              <lightning-layout multiple-rows="true" pull-to-boundary="small">
+              
+                <template for:each={records} for:item="record">
+                  <lightning-layout-item key={record.Id} size="3" class="slds-var-p-around_x-small">
+                   
+                   <lightning-card class="card-style" >
+                      <div class="slds-var-p-horizontal_small bear-tile-body">
+                        <div class="slds-media">
+                          <div class="slds-media__figure">
+                         <template for:each={record.AM_Vehicle_Images__r} for:item="cont">
+                              <div key={cont.Id}  class="image-container">
+                              
+                                <img src={cont.AM_Vehicle_Main_Image__c} style="border-radius: 40px;" height="200px" width="180px"/>
+                                <div class="text-overlay">${record.AM_Make_Year__c}</div>
+                              </div>
+                              
+                            </template>
+                            
+          
+                            
+                          </div>
+                          
+                        </div>
+                        <p slot="footer"><b> {record.AM_Fuel_Type__c}  {record.AM_Body_Type__c} {record.AM_Make_Year__c}</b><br>
+                           starting from <b>$ {record.AM_Transmission_Type__c}</b> <b>{record.KMS_Travelled__c}</b>                
+                        </p>
+                      </div>
+                    </lightning-card>
+                    
+                  </lightning-layout-item>
+                </template>
+              </lightning-layout>
+            </div>
+          </template>
+  
+        </span>
+      </div>
+    </lightning-card>
+</template>

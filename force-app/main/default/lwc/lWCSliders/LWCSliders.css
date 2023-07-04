@@ -1,0 +1,91 @@
+.container {
+    margin: auto;
+  }
+  
+  .text-section {
+    position: absolute;
+    color: #f2f2f2;
+    font-size: 15px;
+    bottom: 0px;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  
+  a {
+    font-size: 30px;
+    text-decoration: solid;
+    text-size-adjust: 30px;
+  }
+  
+  .prev,
+  .next {
+    position:absolute;
+    top: 50%;
+    width: auto;
+    padding: 25px;
+    color: #ff0000;
+    font-weight: 900;
+    font-size: 30px;
+    cursor: pointer;
+    border-radius: 1 5px 5px 1;
+  }
+  
+  .next {
+    right: 20;
+    border-radius:  1 5px 5px 1;
+  }
+  
+  .prev:hover,
+  .next:hover {
+    background-color:#000000;
+  }
+  
+  .slideNumbers {
+    font-size: 30px;
+    position: absolute;
+    padding: 8px 12px;
+    top: 0;
+    color: #f30b0b;
+  }
+  
+  .dot {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: #000000;
+    border-color: aqua;
+    margin: 0 2px;
+    display:contents;
+  }
+  
+  .active,
+  .dot:hover {
+    background-color: #ff0000;
+  }
+  
+  .fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+  
+  @keyframes fade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes autoplay3 {
+    0% {margin-top: 10em}
+    4% {margin-top: 0em}
+    31% {margin-top: 0em}
+    35% {margin-top: -10em}
+    64% {margin-top: -10em}
+    68% {margin-top: -20em}
+    96% {margin-top: -20em}
+    100% {margin-top: -30em}
+  }

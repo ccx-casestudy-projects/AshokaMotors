@@ -1,0 +1,53 @@
+<template>
+  <!--Calling Header Component-->
+  <lightning-card>
+    <c-header-comp></c-header-comp>
+  </lightning-card>
+    <lightning-card>   
+        <!--Page Header-->  
+        <b><div style="text-align:center;">  
+            <h1 style=" font-size: x-large ; color:rgb(170,26,7)">Purchased Car Details</h1></div></b>
+           <!--Search Filter For Vehicle Status-->          
+          <div> 
+            <lightning-layout class="text" multiple-rows>
+                 <lightning-layout-item padding="around-small" size="12" small-device-size="12" medium-device-size="2">  
+                  &nbsp;&nbsp;&nbsp; <label for="id" style="font-size:14px;font-weight:bold;">Vehicle Status</label>    
+                  <lightning-combobox filedid="id" variant="label-hidden" options={options1} onchange={handleKeyChange}  label="Vehicle Status"  >  
+                     </lightning-combobox> 
+                 </lightning-layout-item> 
+      <!--Space Between Two Filters-->
+           &nbsp;&nbsp;&nbsp;
+
+       <!--Search Filter For Vehicle Amount-->
+       <lightning-layout-item padding="around-small" size="12" small-device-size="12" medium-device-size="2">
+        <label style="font-size: 14px;font-weight:bold;">Vehicle Amount</label>
+        <lightning-input fieldid="id" variant="label-hidden" type="number" onchange={handleKeyChange1}></lightning-input>
+      </lightning-layout-item>
+
+      <!--Search Filter For Year--> 
+      <lightning-layout-item padding="around-small" size="12" small-device-size="12" medium-device-size="2">
+        <label style="font-size: 14px;font-weight:bold;">Purchase Month</label>
+        <lightning-input fieldid="id" variant="label-hidden" type="number" onchange={handleKeyChange2}></lightning-input>
+      </lightning-layout-item> 
+       
+       <!--Search Filter For Year--> 
+       <lightning-layout-item padding="around-small" size="12" small-device-size="12" medium-device-size="2">
+        <label style="font-size: 14px;font-weight:bold;">Purchase Year</label>
+        <lightning-input fieldid="id" variant="label-hidden" type="number" onchange={handleKeyChange3}></lightning-input>
+      </lightning-layout-item>
+
+      </lightning-layout>
+      </div>
+           <br/>
+        <div class="myTable">      
+          <b><lightning-datatable key-field="Id" data={records.data} columns={columns} 
+               onrowaction={handleRowAction}
+               sorted-by={sortBy} 
+               sorted-direction={sortDirection} 
+               onsort={doSorting} 
+               onheaderaction={handleHeaderAction}
+               hide-checkbox-column="true">
+           </lightning-datatable> </b>
+   </div> 
+ </lightning-card>
+</template>

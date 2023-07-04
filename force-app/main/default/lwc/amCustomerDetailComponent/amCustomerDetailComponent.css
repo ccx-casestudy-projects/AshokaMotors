@@ -1,0 +1,27 @@
+.overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(65, 61, 61);
+    overflow-x: hidden;
+    transition: 0.5s;
+  }
+  
+  .overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    margin-top: 10px;
+    max-height: 80%; /* Adjust this value as needed */
+    overflow-y: auto;
+  }
+  
+  .overlay .closebtn {
+    position: absolute;
+    top: 60px;
+    right: 45px;
+    font-size: 60px;
+  }

@@ -1,0 +1,44 @@
+<template>
+    <!-- <lightning-card>
+        <c-header-comp></c-header-comp>
+    </lightning-card>-->
+
+    <lightning-card>
+        <c-header-comp></c-header-comp>
+        <div class="slds-grid slds-gutters">
+            <div class="slds-align_left-center slds-p-left_large slds-m-top_medium">
+                <span>
+                    <b><lightning-button icon-name="standard:home" label="Home" onclick={CallMain}>
+                        </lightning-button></b>
+                </span>
+            </div>
+            <div class="slds-align_absolute-center">
+                <h1 class="cardClass"> &ensp;&ensp;&ensp;
+                    <b style="text-decoration: underline;">INVESTMENTS & PROFITS DETAILS </b>
+                </h1>
+            </div>
+
+        </div>
+
+        <div class="slds-grid slds-wrap ">
+            <div class="slds-col slds-align_left-center slds-p-left_large ">
+                <b> <lightning-combobox label="Year" value={getYear} placeholder="Select Year" options={options1}
+                        onchange={changeYear} style="width: 200px;"></lightning-combobox></b>
+            </div>
+            <div class="slds-col slds-size_9-of-12">
+                <b> <lightning-combobox label="Month" value={getmonth} placeholder="Select Month" options={options2}
+                        onchange={changeMonth} style="width: 200px;"></lightning-combobox></b>
+            </div>
+
+        </div>
+        <br />
+        <div class="myTable">
+            <b class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered">
+                <lightning-datatable class="" key-field="Id" data={Investments.data} columns={columns} sorted-by={sortBy}
+                    sorted-direction={sortDirection} onsort={doSorting} hide-checkbox-column="true">
+                </lightning-datatable></b>
+        </div>
+
+
+    </lightning-card>
+</template>

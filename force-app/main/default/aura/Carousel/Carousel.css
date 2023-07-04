@@ -1,0 +1,14 @@
+.THIS img 
+{
+    height:350px;
+    max-width: 600px;
+    border:3px solid black;
+}
+.THIS carousel .carousel-indicators li 
+{
+    background-color: red;
+}
+.THIS carousel .carousel-indicators li.active 
+{
+    background-color: blue;
+}

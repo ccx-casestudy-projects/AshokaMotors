@@ -1,0 +1,192 @@
+<template>
+  
+    
+
+    <template if:true={isShowModal2}>
+    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+       <div class="slds-modal__container">
+        <!-- modal header start -->
+          <header class="slds-modal__header">
+             <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={hideModalBox2}>
+                <lightning-icon icon-name="utility:close"
+                   alternative-text="close"
+                   variant="inverse"
+                   size="small" ></lightning-icon>
+                <span class="slds-assistive-text">Close</span>
+             </button>
+             <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate"> <div class="slds-align_absolute-center">  <b><label for="id" class="slds-text-heading_medium slds-hyphenate"
+              style="font-size:x-large; font-weight:bold; color: rgb(170,26,7); text-decoration:underline; margin-left:-20px;">SEARCH PHONE NUMBER</label></b></div> </h2>
+          </header>
+      
+          <!-- modal body start -->
+          <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+            <div class="slds-align_absolute-center">
+              <div class="slds-col">
+                <span>
+          
+                  <b> <lightning-input class="slds-align_absolute-center" type="text"
+                      label="SEARCH PHONE NUMBER" onchange={handleChange} value={input} style="width: 250px;"></lightning-input></b>
+          
+                  <div class="slds-var-m-around_medium slds-align_absolute-center">
+                    <lightning-button variant="brand" label=" Search Customer Details" title=" Show Curtain Modal"
+                      onclick={handleShowModal} ></lightning-button>
+                  </div>
+          
+                </span>
+              </div>
+            </div>
+            <br />
+          </div>
+
+          
+       
+       </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+  </template>
+
+
+  
+
+  <div>
+    <div data-id="curtainModal" id="curtainModal" class="overlay">
+     
+      <lightning-button-icon icon-name="utility:close" variant="bare-inverse" class="closebtn" onclick={closeModal}
+        size="large"></lightning-button-icon>
+ 
+      <div class="overlay-content">
+
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+          aria-describedby="modal-content-id-1" class="slds-modal_large">
+          <div class="slds-modal__container">
+            <lightning-card>
+              <c-header-comp></c-header-comp>
+          </lightning-card>
+            <lightning-card>
+             
+              <div class="slds-align_absolute-center">  <b><label for="id" class="slds-text-heading_medium slds-hyphenate"
+                style="font-size:x-large; font-weight:bold; color: rgb(170,26,7); text-decoration:underline; margin-left:-20px;">ENTER EXISTING CUSTOMER PREFERENCE </label></b></div>
+              
+         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                <lightning-record-edit-form object-api-name="Account" record-id={dataid}>
+
+
+                  <div class="slds-grid slds-wrap slds-align_absolute-center" style="background:rgb(255, 255, 255);  ">
+                    <div >
+                      <b> <lightning-output-field field-name="Name" style="width: 150px;"></lightning-output-field></b>
+                    </div>
+                    <div >
+                      <b><lightning-input-field field-name="Phone" style="width: 150px;"> </lightning-input-field></b>
+                    </div>
+                  </div>
+                  <br />
+                  <br />
+
+                </lightning-record-edit-form>
+               
+
+                       <template for:each={itemList} for:item="item" for:index="index">
+
+                           <lightning-record-edit-form key={item.id}
+                               object-api-name="AM_Customer_Enquiry__c">
+
+                               <lightning-messages> </lightning-messages>
+
+                               <lightning-layout multiple-rows>
+                                
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
+                                 <lightning-layout-item padding="around_x-small" size="7" small-device-size="12" medium-device-size="2">
+                                    <label for="subcat"><b>Brand</b></label>&nbsp;
+                                       <lightning-input-field class="subcat" fieldid="subcat" field-name="AM_Brand__c" variant="label-hidden"></lightning-input-field>
+                                       
+                                </lightning-layout-item>
+                                   <lightning-layout-item padding="around_x-small" size="7" small-device-size="12" medium-device-size="2">
+                                    <label for="subcat"><b>Model </b></label>
+                                    <lightning-input-field fieldid="subcat" field-name="AM_Model__c" variant="label-hidden">
+                                    </lightning-input-field>
+                                </lightning-layout-item>
+                                <lightning-layout-item padding="around_x-small" size="7" small-device-size="12" medium-device-size="2">
+                                    <label for="subcat"><b>Make Year</b></label>
+                                    <lightning-input-field fieldid="subcat" field-name="AM_Make_Year__c"  variant="label-hidden">
+                                    </lightning-input-field>
+                                </lightning-layout-item>
+                               <!--
+                                <lightning-layout-item padding="around_x-small" size="7" small-device-size="12" medium-device-size="2">
+                                    <label for="subcat"><b>KMS Driven</b></label>
+                                    <lightning-input-field fieldid="subcat" field-name="KMS_Travelled__c" variant="label-hidden">
+                                    </lightning-input-field>
+                                </lightning-layout-item>
+                                -->
+                                <lightning-layout-item padding="around_x-small" size="7"  small-device-size="12" medium-device-size="2">
+                                    <label for="subcat"><b>Fuel Type</b></label>
+                                    <lightning-input-field fieldid="subcat" field-name="AM_Fuel_Type__c" variant="label-hidden">
+                                    </lightning-input-field>
+                                </lightning-layout-item>
+                                   <lightning-layout-item padding="around-small" size="10" small-device-size="12" medium-device-size="2">
+                                       <lightning-icon icon-name="action:new" access-key={item.id} id={index} alternative-text="Add Row"
+                                           size="small" title="Add Row" onclick={addRow}></lightning-icon>
+                                  &ensp;&ensp;
+                                       <lightning-icon icon-name="action:delete" access-key={item.id} id={index} alternative-text="Delete Row"
+                                           size="small" title="Delete Row" onclick={removeRow}></lightning-icon>
+                                   </lightning-layout-item>
+                               </lightning-layout>
+                               <lightning-layout-item padding="around_x-small" size="7" small-device-size="12" medium-device-size="2">
+                                <div class="hidden-field">
+                                  <label for="subcat"><b>Customer</b></label>
+                                  <lightning-input-field fieldid="subcat" field-name="AM_Customer__c" variant="label-hidden"
+                                      value={dataid}></lightning-input-field>
+                              </div>
+
+                               </lightning-layout-item>
+                               
+                       </lightning-record-edit-form>
+
+                
+                             
+                          
+
+                       </template>
+
+                      
+
+                       <div class="savebtn">
+
+                           <lightning-button variant="brand" label="Save" size="x-large" class="slds-align_absolute-center" 
+                               title="Primary action with lighter look" onclick={handleSubmit}
+                               ></lightning-button>
+                       </div>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                 
+             
+
+           </lightning-card>
+
+
+
+
+
+            
+
+
+
+
+
+
+
+
+
+
+          </div>
+
+        </section>
+      </div>
+    </div>
+  </div>
+</template>

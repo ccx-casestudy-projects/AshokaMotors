@@ -1,0 +1,108 @@
+<template>
+  <lightning-card>
+    <c-header-comp></c-header-comp>
+  </lightning-card>
+
+  <lightning-card>
+    <div class="slds-grid slds-gutters">
+      <div class="slds-align_left-center slds-p-left_large">
+        <b><lightning-button label="<-Back" variant="destructive" onclick={goToVehicleQuickmain}></lightning-button></b>
+      </div>
+      <div class="slds-align_absolute-center">
+        <h1 class="cardClass"> &ensp;&ensp;&ensp;
+          <b style="text-decoration: underline;">CUSTOMER VEHICLE QUICK ENTRY</b>
+        </h1>
+      </div>
+
+    </div>
+    <lightning-layout multiple-rows="true">
+      <lightning-layout-item class="slds-p-around_medium" size="6">
+        <div>
+          <b><lightning-input label="Vehicle Registration Number" name="vehResNum" required
+              onchange={handleFieldChange}></lightning-input></b>
+              <lightning-helptext
+              content="Enter Vehicle Registration Number!"></lightning-helptext>
+        </div>
+        
+        <div>
+          <b><label for="id"> Brand</label></b>
+          <lightning-combobox fieldid="id" name="vehBrand" variant="label-hidden" options={options1} required
+            onchange={handleBrandChange}>
+          </lightning-combobox>
+          <lightning-helptext content="Enter Vehicle Brand!"></lightning-helptext>
+        </div>
+
+        <div>
+          <b><label for="id">Make Year</label></b>
+          <lightning-combobox fieldid="id" name="makeYear" variant="label-hidden" options={options3} required
+            onchange={handleFieldChange}>
+          </lightning-combobox>
+          <lightning-helptext content="Enter Vehicle Make Year !"></lightning-helptext>
+        </div>
+
+        <div> 
+          <b><lightning-input label=" KMS Travelled" name="kms" required
+              onchange={handleFieldChange}></lightning-input></b>
+              <lightning-helptext content="Enter Vehicle KMS Travelled!"></lightning-helptext>
+        </div>
+        
+        <div>
+          <b><lightning-input label="Purchase Amount" name="purAmt" type="number" required
+            step="0.01" formatter="currency" onchange={handleFieldChange}>
+            </lightning-input></b>
+            <lightning-helptext content="Enter vehicle Purchase Amount!"></lightning-helptext>
+        </div>
+
+        &nbsp; &nbsp;
+        <div class="slds-grid slds-gutters">
+        
+          <div class="slds-col slds-size_1-of-2">
+            <b><label for="id">Repair Required</label></b>
+            <lightning-input type="checkbox" name="vehRepairReq" value={repair}  onchange={handleRepairRequired}></lightning-input>
+          </div>
+        </div>
+      </lightning-layout-item>
+
+      <lightning-layout-item class="slds-p-around_medium" size="6">
+        <div>
+          <b><lightning-input label="Vehicle Registration Date" name="vehRegDate" type="date" required
+              onchange={handleFieldChange}></lightning-input></b>
+              <lightning-helptext  content="Enter Vehicle Registration Date!">E</lightning-helptext>
+        </div>
+
+        <div>
+          <b><label for="id"> Model</label></b>
+          <lightning-combobox fieldid="id" name="vehModel" variant="label-hidden" options={options2} required
+            onchange={handleModelChange}>
+          </lightning-combobox>
+          <lightning-helptext content="Enter Vehicle Model!"></lightning-helptext>
+        </div>
+
+        <div>
+          <b><lightning-input label=" Variant" name="vehVariant" required
+              onchange={handleFieldChange}></lightning-input></b>
+              <lightning-helptext content="Enter Vehicle Variant!"></lightning-helptext>
+        </div>
+        
+        <div>
+          <b><lightning-input label="Received Date" name="purDate" type="date" required
+              onchange={handleFieldChange}></lightning-input></b>
+              <lightning-helptext content="Enter Vehicle Received Date!"></lightning-helptext>
+        </div>
+        
+        <div>
+          <b><lightning-input label="Expected Profit" name="prfAmt" type="number" required
+            step="0.01" formatter="currency" onchange={handleFieldChange}>
+            </lightning-input></b>
+            <lightning-helptext content="Enter Vehicle Expected Profit!"></lightning-helptext>
+        </div>
+      </lightning-layout-item>
+    </lightning-layout>
+
+    <div class="slds-align_absolute-center">
+      <b>   <lightning-button label="Save" variant="brand" onclick={HandleInsert}
+        class="slds-m-left_x-small"></lightning-button> </b> 
+    </div>
+
+  </lightning-card>
+</template>

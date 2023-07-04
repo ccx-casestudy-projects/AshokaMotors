@@ -1,0 +1,112 @@
+<template>
+    <lightning-card>
+        <div>
+            <c-header-comp></c-header-comp>
+        </div>
+    </lightning-card>
+
+    <lightning-card>
+
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col">
+                <span>
+                    <br />
+                    <b><lightning-button icon-name="standard:home" class="slds-size_1-of-2 slds-float_left" label="Home"
+                        onclick={CallMain}></lightning-button></b>
+                </span>
+            </div>
+            <div class="button">
+                <span>
+                    <br />
+                    <b><lightning-button class="slds-size_1-of-3 slds-float_center" label="Add Customer"
+                            onclick={CallCustomerEntry}></lightning-button></b>
+                </span>
+            </div>
+
+            <div class="slds-col">
+                <span>
+                    <b><lightning-input class="slds-size_1-of-3 slds-float_right" type="search" placeholder="Search"
+                            value={searchTerm} onchange={handleSearch}></lightning-input></b>
+                </span>
+            </div>
+        </div>
+        <br />
+
+        <div class="myTable">
+            <b>
+                <lightning-datatable key-field="Id" data={Customers.data} columns={columns}
+                    onrowaction={handleRowAction} sorted-by={sortBy} sorted-direction={sortDirection} onsort={doSorting}
+                    hide-checkbox-column="true">
+                </lightning-datatable>
+            </b>
+        </div>
+
+
+        <template if:true={isShowModal}>
+
+
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+
+                    <!-- modal header start -->
+                    <header class="slds-modal__header">
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                            title="Close" onclick={hideModalBox}>
+                            <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse"
+                                size="small"></lightning-icon>
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate"><b>Edit Customer Details</b></h2>
+                    </header>
+                   
+                    
+                    <!-- modal body start -->
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <div class="xyz">
+                            <lightning-record-edit-form object-api-name="Account" record-id={recordId}>
+
+                                <lightning-layout>
+                                    <lightning-layout-item class="slds-p-around_medium" size="6">
+                                        <label for="CustomerDetails"><b>Customer Name</b></label>
+                                        <lightning-input-field for="CustomerDetails" variant="label-hidden"
+                                            field-name={nameField}></lightning-input-field>
+
+                                        <label for="CustomerDetails"><b>Customer Email</b></label>
+                                        <lightning-input-field for="CustomerDetails" variant="label-hidden"
+                                            field-name={emailField}></lightning-input-field>
+
+                                        <label for="CustomerDetails"><b>Customer Phone</b></label>
+                                        <lightning-input-field for="CustomerDetails" variant="label-hidden"
+                                            field-name={phoneField}></lightning-input-field>
+
+                                    </lightning-layout-item>
+                                    <lightning-layout-item class="slds-p-around_medium" size="6">
+                                        <label for="CustomerDetails"><b>Customer Address</b></label>
+                                        <lightning-input-field for="CustomerDetails" variant="label-hidden"
+                                            field-name={addField}></lightning-input-field>
+                                    </lightning-layout-item>
+                                </lightning-layout>
+
+
+                                <br />
+                                <div class="slds-align_absolute-center">
+                                    <lightning-button variant="brand" type="submit" label="Save" onclick={saveHandle}>
+                                    </lightning-button>
+                                </div>
+                            </lightning-record-edit-form>
+                        </div>
+                    </div>
+
+                    <!-- modal footer start
+                    <footer class="slds-modal__footer">
+                        <button class="slds-button slds-button_neutral" onclick={hideModalBox}>Cancel</button>
+                    </footer>-->
+
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </template>
+
+    </lightning-card>
+</template>

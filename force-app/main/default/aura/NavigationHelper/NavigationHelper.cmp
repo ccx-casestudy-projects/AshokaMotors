@@ -1,0 +1,30 @@
+<aura:component implements="flexipage:availableForAllPageTypes,lightning:isUrlAddressable" access="global">
+    <aura:attribute type="String" name="token"/>
+    <aura:attribute type="String" name="table"/>
+    <aura:attribute type="String" name="id"/>
+    <aura:attribute type="String" name="cname"/>
+    <aura:attribute type="String" name="csn"/>
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <lightning:card>
+        <c:ccxheadercmp></c:ccxheadercmp>   <br></br> 
+        <h1 style="color:#ff461e;text-align:center;font-weight:bolder;font-size:34px;">Menu</h1>
+        <div style="border: 2px solid #ff461e;margin-left:8px;height: 80px;width: 98%;">   
+            <c:menuScreenheader token="{!v.token}" table="{!v.table}" id="{!v.id}" csn="{!v.csn}" cname="{!v.cname}"/>
+        </div>
+        <lightning:layout>
+            <lightning:layoutItem size="9" >
+                <div class="custom-box"><c:menuScreen token="{!v.token}" table="{!v.table}" id="{!v.id}" csn="{!v.csn}" cname="{!v.cname}"/></div>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="2" >
+                <lightning:layout multipleRows="true">
+                    <lightning:layoutItem size="10" >
+                        <div class="custom-box1"><c:displayTodaySpecialItems  table="{!v.table}" id="{!v.id}"  csn="{!v.csn}" cname="{!v.cname}"/></div>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem size="10"  >
+                        <div class="custom-box1"><c:orderlines  table="{!v.table}" id="{!v.id}" cname="{!v.cname}"/></div>
+                    </lightning:layoutItem>
+                </lightning:layout>
+            </lightning:layoutItem>
+        </lightning:layout>
+    </lightning:card>
+</aura:component>

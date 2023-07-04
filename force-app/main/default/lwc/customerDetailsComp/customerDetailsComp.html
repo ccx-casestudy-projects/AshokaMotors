@@ -1,0 +1,102 @@
+<template>
+    <lightning-card>
+         <!--Home Button-->
+         <div class="slds-grid slds-gutters">
+            <div class="slds-col">
+                <span  class="slds-p-left_medium">
+                  <lightning-icon icon-name="custom:custom107" size="x-medium" class="slds-size_1-of-9" onclick={CallMain} title="custom107">
+                  </lightning-icon>
+               
+                  <b><label style="font-size: x-medium; padding: 0 3px ;vertical-align: bottom"  onclick={CallMain} >HOME</label></b>
+                </span>
+            </div>
+         <!-- Page Title Header -->
+         <div class="slds-col">
+            <span>
+              <b><h1  style="font-size:x-large ; color: rgb(170, 26, 7) ;" > CUSTOMER ENQUIRY DETAILS</h1></b>
+            </span>
+         </div>
+        </div>
+        <br/>
+        <div class="slds-text-align_right slds-p-right_xx-large slds-p-bottom_xx-large">        <lightning-button variant="brand" style="font-weight:bolder;"
+        label="Delete"  onclick={deleteProduct} >
+        </lightning-button></div>
+
+        <div class="myTable1 slds-table slds-table_bordered slds-table_col-bordered">
+            <lightning-datatable
+            key-field="id"
+            data={wiredAccount.data}
+            columns={columns}
+            onrowaction={handleRowAction}
+         
+          onrowselection={deleterecords}
+          >
+           
+            </lightning-datatable>
+        </div>
+
+        <template if:true={isShowModal} >
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container" >
+            
+                <!-- modal header start -->
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                        title="Close" onclick={hideModalBox}>
+                        <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse"
+                            size="small"></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate"
+                    style="font-size:x-large; font-weight:bold; color: rgb(170,26,7);">EDIT CUSTOMER DETAILS</h2>
+            </header>
+            
+                <!-- modal body start -->
+                <lightning-card>
+                    <div style="margin-top: -40px;">
+                    <div class="slds-grid slds-gutters">
+                        <div class="slds-align_absolute-center">
+                            <lightning-record-edit-form object-api-name="AM_Customer_Enquiry__c" record-id={recordId}>               
+                                <b> <lightning-layout>
+                                    <lightning-layout-item class="slds-p-around_xx-large">
+                                    <div>
+                                        <lightning-output-field field-name={CustomerNameField}></lightning-output-field>
+                                    </div>
+                                    <div>
+                                        <lightning-input-field field-name={CustomerModelField}></lightning-input-field>
+                                    </div>
+                                    <div>
+                                        <lightning-input-field field-name={KMSTravelledField}></lightning-input-field>
+                                    </div>
+                                    </lightning-layout-item>
+                                    <lightning-layout-item class="slds-p-around_xx-large">
+                                        <div>
+                                            <lightning-input-field field-name={FuelTypeField}></lightning-input-field>
+                                        </div>
+                                        <div>
+                                            <lightning-input-field field-name={VehicleColorField}></lightning-input-field>
+                                        </div>
+                                        <div>
+                                            <lightning-input-field field-name={MakeYearField}></lightning-input-field>
+                                        </div>
+                                        
+                                    </lightning-layout-item>
+                                    </lightning-layout>
+                                </b>
+                                <div class="slds-m-bottom_medium slds-align_absolute-center">
+                                        <lightning-button variant="brand" type="submit" label="Save" onclick={saveHandle}>
+                                        </lightning-button>
+                                </div>               
+                            </lightning-record-edit-form>                          
+                        </div>
+                    </div>
+                    </div>
+                </lightning-card>
+            </div>           
+            </section>
+            <div class="slds-backdrop slds-backdrop_open">
+            </div>
+            </template>
+            
+    </lightning-card>
+</template>

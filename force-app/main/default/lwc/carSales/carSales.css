@@ -1,0 +1,40 @@
+.cardClass{
+   
+    font-family:  Verdana, Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: large;
+    text-align: center;
+    color: rgb(170,26,7);
+   
+}
+.popup-container {
+  position: absolute;
+  top: 7rem; 
+  left: 6rem;
+  z-index: 1;
+  width: 180px; 
+  height: 60px; 
+  background-color: white;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+}
+
+
+.popup-content {
+  padding: 1rem;
+}
+
+.close-icon {
+  position: absolute;
+  top: -7px;
+  right: 8px; /* Changed 'left' to 'right' */
+  cursor: pointer;
+  padding: 5px;
+  background-color: transparent;
+  z-index: 2;
+}
+
+.close-icon lightning-icon {
+  fill: #666;
+  transform: scale(0.4);
+}

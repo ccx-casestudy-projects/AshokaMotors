@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Estimated_repair_date_Validation</fullName>
+    <active>false</active>
+    <errorConditionFormula>AM_Estimated_Vehicle_Repair_Date__c  &gt;  AM_Vehicle_Repairs__r.AM_Vehicle_Number__r.AM_Purchase_Date__c</errorConditionFormula>
+    <errorMessage>Estimated Vehicle Date Should be Greater than Vehicle Purchase Date</errorMessage>
+</ValidationRule>

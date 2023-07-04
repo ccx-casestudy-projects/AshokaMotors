@@ -1,0 +1,507 @@
+<template>
+
+    <lightning-card>
+        <c-header-comp></c-header-comp>
+    </lightning-card>
+
+    <lightning-card>
+        <!--Modal Pop 1-->
+        <template if:true={isCustomerOpen}>
+            <!-- Modal/Popup Box LWC starts here -->
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <!-- Modal/Popup Box LWC header here -->
+                    <header class="slds-modal__header">
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                            title="Close" onclick={CloseCustomeModal}>
+                            <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse"
+                                size="small"></lightning-icon>
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate cardClass">PROVIDE
+                            CUSTOMER ADDITIONAL DETAILS</h2>
+                    </header>
+
+
+                    <!-- Modal/Popup Box LWC body starts here -->
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <div>
+                            <lightning-record-edit-form object-api-name="Account" record-id={customerID1}
+                                onsuccess={NavToProof}>
+                                <lightning-messages></lightning-messages>
+
+
+                                <lightning-layout>
+                                    <lightning-layout-item padding="around-small" class="slds-align_absolute-center">
+                                        <label for="CustomerDetails" style="font-size:large;"><b> Name Of The Customer
+                                            </b></label> &nbsp;
+                                        <lightning-input-field style="font-size:large;" class="slds-size_1-of-2"
+                                            for="CustomerDetails" variant="label-hidden" field-name="Name"
+                                            disabled></lightning-input-field>
+                                    </lightning-layout-item>
+                                </lightning-layout>
+
+                                <lightning-layout>
+                                    <lightning-layout-item padding="around-small" class="slds-size_1-of-2">
+
+                                        <label for="CustomerDetails"><b>Aadhar Number </b></label>
+                                        <lightning-input-field for="CustomerDetails" variant="label-hidden"
+                                            field-name="AM_Customer_Aadhar_Number__c" required></lightning-input-field>
+
+                                    </lightning-layout-item>
+
+                                    <lightning-layout-item padding="around-small" class="slds-size_1-of-2">
+
+                                        <label for="CustomerDetails"><b>Pan Number </b></label>
+                                        <lightning-input-field for="CustomerDetails" variant="label-hidden"
+                                            field-name="AM_Customer_Pan_Number__c" required></lightning-input-field>
+
+                                    </lightning-layout-item>
+                                </lightning-layout>
+
+                                &nbsp; &nbsp; &nbsp;<label for="CustomerDetails"><b>Address </b></label>
+                                <br />
+                                <lightning-layout>
+                                    <lightning-layout-item padding="around-small" class="slds-size_1-of-2">
+                                        <b><label for="CustomerDetails">Street</label></b>
+
+                                        <lightning-input-field class="slds-size_1-of-1 custom-textarea"
+                                            for="CustomerDetails" variant="label-hidden"
+                                            field-name="BillingStreet"></lightning-input-field>
+
+                                    </lightning-layout-item>
+                                    <lightning-layout-item padding="around-small" class="slds-size_1-of-2">
+
+                                        <b><label for="CustomerDetails">City </label></b>
+                                        <lightning-input-field for="CustomerDetails" variant="label-hidden"
+                                            field-name="BillingCity"></lightning-input-field>
+
+                                        <b><label for="CustomerDetails">State/Province </label></b>
+                                        <lightning-input-field for="CustomerDetails" variant="label-hidden"
+                                            field-name="BillingState"></lightning-input-field>
+
+                                    </lightning-layout-item>
+                                </lightning-layout>
+
+
+                                <lightning-layout>
+                                    <lightning-layout-item padding="around-small" class="slds-size_1-of-2">
+
+                                        <b><label for="CustomerDetails">Country </label></b>
+                                        <lightning-input-field for="CustomerDetails" variant="label-hidden"
+                                            field-name="BillingCountry"></lightning-input-field>
+
+                                    </lightning-layout-item>
+                                    <lightning-layout-item padding="around-small" class="slds-size_1-of-2">
+
+                                        <b><label for="CustomerDetails">Zip/PostalCode </label></b>
+                                        <lightning-input-field for="CustomerDetails" variant="label-hidden"
+                                            field-name="BillingPostalCode"></lightning-input-field>
+
+                                    </lightning-layout-item>
+                                </lightning-layout>
+
+                                <div class="slds-m-top_medium">
+                                    <b><lightning-button class="slds-align_absolute-center" type="submit"
+                                            label="SAVE & NEXT " variant="brand"
+                                            onchange={NavToProof}></lightning-button></b>
+                                </div>
+
+                            </lightning-record-edit-form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </template>
+
+        <!--Modal Pop 2-->
+
+        <template if:true={isProofsOpen}>
+            <!-- Modal/Popup Box LWC starts here -->
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-02" aria-modal="true"
+                aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <!-- Modal/Popup Box LWC header here -->
+                    <header class="slds-modal__header">
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                            title="Close" onclick={closeProofsModal}>
+                            <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse"
+                                size="small"></lightning-icon>
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <h2 id="modal-heading-02" class="slds-text-heading_medium  slds-hyphenate cardClass">UPLOAD
+                            CUSTOMER IDENTIFICATION PROOF'S</h2>
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-2">
+                        <div>
+                            <div class="slds-grid slds-gutters slds-align_absolute-center">
+
+                                <div class="slds-col slds-size_1-of-4">
+                                    <b> <label style="font-size: small; ">Address Proof</label></b>
+                                </div>
+
+                                <div class="slds-col slds-size_1-of-3">
+                                    <input type="file" accept={acceptedFormats} onchange={handleFileChange} />
+                                </div>
+
+                                <div class="slds-col slds-size_1-of-6">
+                                    <b><button style="background-color:rgb(13,121,39); color:white;"
+                                            onclick={uploadFile}>Upload</button></b>
+                                </div>
+
+                            </div>
+                            <br />
+                            <div class="slds-grid slds-gutters slds-align_absolute-center">
+
+                                <div class="slds-col slds-size_1-of-4">
+                                    <b> <label style="font-size: small;">Aadhar Proof</label></b>
+                                </div>
+
+                                <div class="slds-col slds-size_1-of-3">
+                                    <input type="file" accept={acceptedFormats} onchange={handleFileChange} required />
+                                </div>
+
+                                <div class="slds-col slds-size_1-of-6">
+                                    <b><button style="background-color:rgb(13,121,39); color:white;"
+                                            onclick={uploadFile}>Upload</button></b>
+                                </div>
+
+                            </div>
+                            <br />
+                            <div class="slds-grid slds-gutters slds-align_absolute-center">
+
+                                <div class="slds-col slds-size_1-of-4">
+                                    <b> <label style="font-size: small; ">Pan Card Proof</label></b>
+                                </div>
+
+                                <div class="slds-col slds-size_1-of-3">
+                                    <input type="file" accept={acceptedFormats} onchange={handleFileChange} />
+                                </div>
+
+                                <div class="slds-col slds-size_1-of-6">
+                                    <b><button style="background-color:rgb(13,121,39); color:white;"
+                                            onclick={uploadFile}>Upload</button></b>
+                                </div>
+
+                            </div>
+                        </div>
+                        <br />
+                        <b><button class="slds-button slds-button_brand slds-align_absolute-center"
+                                onclick={NextToDiscount} title="OK">NEXT</button></b>
+                    </div>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </template>
+
+        <!--Modal Pop 3-->
+        <template if:true={isDiscountOpen}>
+            <!-- Modal/Popup Box LWC starts here -->
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-03" aria-modal="true"
+                aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <!-- Modal/Popup Box LWC header here -->
+                    <header class="slds-modal__header">
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                            title="Close" onclick={CloseDiscountModal}>
+                            <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse"
+                                size="small"></lightning-icon>
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <h2 id="modal-heading-03" class="slds-text-heading_medium  slds-hyphenate cardClass">ADD
+                            DISCOUNT DETAILS</h2>
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-3">
+
+                        <lightning-card>
+                            <b><lightning-combobox label="Select Type Of Discount" onchange={handlediscount}
+                                    value={typeoddisc} options={DiscountOptions}
+                                    name="typeofdiscount"></lightning-combobox></b>
+                            <b><lightning-input disabled={disamount} type="number" onchange={handlediscountchange}
+                                    value={discount} label="Discount in Amount"></lightning-input></b>
+                            <b><lightning-input disabled={dispercent} type="number" onchange={handlediscountchange1}
+                                    value={discount1} label="Discount in Percentage" step="0.02"
+                                    formatter="percent-fixed"></lightning-input></b>
+                            <br />
+                            <br />
+                            <b><lightning-button class="slds-align_absolute-center" label="Save" variant="brand"
+                                    onclick={handlesave}></lightning-button></b>
+                        </lightning-card>
+
+                    </div>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </template>
+
+        <!--Payment Screen Starts-->
+
+        <h1 class="cardClass slds-align_absolute-center">CUSTOMER BILL</h1>
+
+
+        <lightning-layout>
+            <lightning-layout-item padding="around-small" class="slds-size_1-of-2 slds-float_left">
+                <div>
+                    <p style="font-size:medium"> <b>Name Of The Customer : </b>{CusName}</p>
+                    <p style="font-size:medium"><b>Phone No :</b>{CusPhone}</p>
+                    <p style="font-size:medium"><b>Address :</b>{Cuscity} {Cusstate}</p>
+                </div>
+            </lightning-layout-item>
+
+            <lightning-layout-item padding="around-small" class="slds-size_1-of-2">
+                <div>
+                    <p style="font-size:medium; text-align:right"> <b>Date: </b>{today}</p>
+                </div>
+            </lightning-layout-item>
+        </lightning-layout>
+
+        <lightning-layout>
+            <lightning-layout-item padding="around-small" class="slds-size_1-of-2 slds-float_left">
+
+                <div class="slds-size_1-of-2 slds-align_absolute-center">
+                    <b><lightning-radio-group type="radio" class="radio-group radio-combo-inline"
+                            options={Paymentoptions} value={selectedValue}
+                            onchange={handleChange}></lightning-radio-group></b>
+                </div>
+
+                <div class="slds-box slds-col slds-size_1-of-2 slds-align_absolute-center">
+                    <template if:true={showCash}>
+                        <lightning-card>
+                            <img src="https://t4.ftcdn.net/jpg/04/59/60/21/360_F_459602134_KIgwib6sVL1uq1Brndn3Tp9qZRXpGNxv.jpg"
+                                style="height: 270px; width:300px">
+                        </lightning-card>
+                    </template>
+
+                    <template if:true={showUPI}>
+                        <lightning-card>
+                            <img src={Qrcode} style="height: 270px; width:300px">
+                        </lightning-card>
+                    </template>
+                </div>
+
+            </lightning-layout-item>
+
+
+            <lightning-layout-item class="slds-size_1-of-2 slds-p-right_xx-large">
+
+                <!--1 . Grand Total-->
+                <div class="slds-grid slds-gutters ">
+                    <div class="slds-col slds-float_left slds-size_1-of-5">
+                        <b>
+                            <p style="font-size: x-medium;">Grand Total</p>
+                        </b>
+                    </div>
+
+                    <div class="slds-col slds-float_left slds-size_1-of-3">
+                        <b>
+                            <p style="font-size: x-medium;">:</p>
+                        </b>
+                    </div>
+                    <div class="slds-col slds-box slds-box_xx-small slds-float_right slds-size_1-of-3">
+                        <lightning-formatted-number format-style="currency" currency-code="INR"
+                            class="slds-text-title_bold slds-float_right"
+                            style="font-size:x-medium ; color:rgb(176, 26, 7) ;"
+                            value={CarPrices}></lightning-formatted-number>
+                    </div>
+                </div>
+
+                <!--2 . Discount-->
+                <div class="slds-grid slds-gutters ">
+                    <div class="slds-col slds-float_left slds-size_1-of-5">
+                        <b>
+                            <br />
+                            <p style="font-size: x-medium;">Discount</p>
+                        </b>
+                    </div>
+
+                    <div class="slds-col slds-float_left slds-size_1-of-3">
+                        <b>
+                            <br />
+                            <p style="font-size: x-medium;">:</p>
+                        </b>
+                    </div>
+                    <div class="slds-col slds-float_right slds-size_1-of-3">
+                        <template if:true={ShowDisAmount}>
+                            <b>
+                                <lightning-input type="number" step="0.01" formatter="currency" currency-code="INR"
+                                    style="font-size: x-medium " class="slds-text-title_bold"
+                                    onfocusout={handleDiscountClick} value={Dis}></lightning-input>
+                            </b>
+                        </template>
+
+                        <template if:true={ShowDisPercentage}>
+                            <b>
+                                <lightning-input type="number" min="0" max="100" formatter="percent-fixed" step="0.01"
+                                    style="font-size: x-medium " class="slds-text-title_bold"
+                                    onfocusout={handleDiscountClickpercent} value={Dis1}></lightning-input>
+                            </b>
+                        </template>
+                    </div>
+                </div>
+
+                <!--3 . TAX-->
+                <div class="slds-grid slds-gutters ">
+                    <div class="slds-col slds-float_left slds-size_1-of-5">
+                        <b>
+                            <br />
+                            <p style="font-size: x-medium;">Tax</p>
+                        </b>
+                    </div>
+
+                    <div class="slds-col slds-float_left slds-size_1-of-3">
+                        <b>
+                            <br />
+                            <p style="font-size: x-medium;">:</p>
+                        </b>
+                    </div>
+                    <div class="slds-col slds-float_right slds-size_1-of-3">
+                        <lightning-input type="number" min="0" max="100" formatter="percent-fixed" step="0.01"
+                            style="font-size: x-medium ; " class="slds-text-title_bold" onfocusout={handleTax}
+                            value={tax}></lightning-input>
+                    </div>
+                </div>
+
+                <br />
+                <!--4 . Net Amount-->
+                <div class="slds-grid slds-gutters ">
+                    <div class="slds-col slds-float_left slds-size_1-of-5">
+                        <b>
+                            <p style="font-size: x-medium;">Net Total</p>
+                        </b>
+                    </div>
+
+                    <div class="slds-col slds-float_left slds-size_1-of-3">
+                        <b>
+                            <p style="font-size: x-medium;">:</p>
+                        </b>
+                    </div>
+                    <div class="slds-col slds-box slds-box_xx-small slds-float_right slds-size_1-of-3">
+                        <lightning-formatted-number format-style="currency" currency-code="INR"
+                            style="font-size:x-medium"
+                            class="slds-float_right slds-text-color_success slds-text-title_bold"
+                            value={netTotal}></lightning-formatted-number>
+                    </div>
+                </div>
+
+                <br/>
+                <!--5 . Advanced Paid-->
+                <div class="slds-grid slds-gutters" if:true={AdvanceisAvailable}>
+                    <div class="slds-col slds-float_left slds-size_1-of-5">
+                        <b>
+                            <p style="font-size: x-medium;">Advance Paid</p>
+                        </b>
+                    </div>
+
+                    <div class="slds-col slds-float_left slds-size_1-of-3">
+                        <b>
+                            <p style="font-size: x-medium;">:</p>
+                        </b>
+                    </div>
+                    <div class="slds-col slds-box slds-box_xx-small slds-float_right slds-size_1-of-3">
+                        <lightning-formatted-number format-style="currency" currency-code="INR"
+                            style="font-size:x-medium"
+                            class="slds-float_right slds-text-color_success slds-text-title_bold"
+                            value={AdvancePaid}></lightning-formatted-number>
+                    </div>
+                </div>
+                <br />
+                 <!--6. Due-->
+
+                 <div class="slds-grid slds-gutters" if:true={DueisAvailable}>
+                    <div class="slds-col slds-float_left slds-size_1-of-5">
+                        <b>
+                            <p style="font-size: x-medium;">Due</p>
+                        </b>
+                    </div>
+
+                    <div class="slds-col slds-float_left slds-size_1-of-3">
+                        <b>
+                            <p style="font-size: x-medium;">:</p>
+                        </b>
+                    </div>
+                    <div class="slds-col slds-box slds-box_xx-small slds-float_right slds-size_1-of-3">
+                        <lightning-formatted-number format-style="currency" currency-code="INR"
+                            style="font-size:x-medium"
+                            class="slds-float_right slds-text-color_success slds-text-title_bold"
+                            value={Dues}></lightning-formatted-number>
+                    </div>
+                </div>
+
+
+                 <!--7 . Amount Paid-->
+                 <div class="slds-grid slds-gutters ">
+                    <div class="slds-col slds-float_left slds-size_1-of-5">
+                        <b>
+                            <br />
+                            <p style="font-size: x-medium;">Amount Paid</p>
+                        </b>
+                    </div>
+
+                    <div class="slds-col slds-float_left slds-size_1-of-3">
+                        <b>
+                            <br />
+                            <p style="font-size: x-medium;">:</p>
+                        </b>
+                    </div>
+                    <div class="slds-col slds-float_right slds-size_1-of-3">
+                        <lightning-input type="number" formatter="currency" currency-code="INR"
+                            style="font-size: x-medium " class="slds-text-title_bold" onfocusout={handleAmountPaid}
+                            value={AmounPaid}></lightning-input>
+                    </div>
+                </div>
+
+                <br />
+
+                <!--8.Balanced Due-->
+
+                
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-col slds-float_left slds-size_1-of-5">
+                        <b>
+                            <p style="font-size: x-medium;">Due</p>
+                        </b>
+                    </div>
+
+                    <div class="slds-col slds-float_left slds-size_1-of-3">
+                        <b>
+                            <p style="font-size: x-medium;">:</p>
+                        </b>
+                    </div>
+                    <div class="slds-col slds-box slds-box_xx-small slds-float_right slds-size_1-of-3">
+                        <lightning-formatted-number format-style="currency" currency-code="INR"
+                            style="font-size:x-medium"
+                            class="slds-float_right slds-text-color_success slds-text-title_bold"
+                            value={Balance}></lightning-formatted-number>
+                    </div>
+                </div>
+
+                <br />
+
+              
+                <!--9 .Pay Button-->
+                <div class="slds-grid slds-gutters ">
+                    <div class="slds-col slds-size_1-of-5">
+
+                    </div>
+
+                    <div class="slds-col ">
+
+                        <b><button onclick={handlePayment}
+                                class="slds-align_absolute-center slds-button slds-button_destructive"
+                                style="width:200px">PAY</button>
+                        </b>
+                    </div>
+
+                    <div class="slds-col ">
+
+                    </div>
+
+                </div>
+
+            </lightning-layout-item>
+        </lightning-layout>
+
+    </lightning-card>
+</template>

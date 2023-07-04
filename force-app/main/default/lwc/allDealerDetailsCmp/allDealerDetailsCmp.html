@@ -1,0 +1,42 @@
+<template>
+    <lightning-card>
+        <c-header-comp></c-header-comp>
+</lightning-card>
+    <lightning-card>
+        <!-- Page Title Header -->
+        <b>
+            <!--Home Button-->
+            <div class="slds-grid slds-gutters">
+             <div class="slds-col">
+                 <span  class="slds-p-left_medium">
+                   <lightning-icon icon-name="custom:custom107" size="x-medium" class="slds-size_1-of-9" onclick={CallMain} title="custom107">
+                   </lightning-icon>
+                
+                   <b><label style="font-size: x-medium; padding: 0 3px ;vertical-align: bottom"  onclick={CallMain} >HOME</label></b>
+                 </span>
+             </div>
+               <!--Page Header-->
+             <div class="slds-col">
+                 <span>
+                   <b><h1  style="font-size:x-large ; color: rgb(170, 26, 7) ; text-decoration:underline" > ALL DEALER'S DETAILS</h1></b>
+                 </span>
+             </div>
+         </div>
+       </b>
+<br/>
+        <div class="myTable ">
+            <div class="slds-table slds-table_bordered slds-table_col-bordered">
+            <lightning-datatable
+                key-field="id"
+                data={Dealer.data}
+                columns={columns}
+                onrowaction={handleRowAction}
+              sorted-by={sortBy} 
+              sorted-direction={sortDirection} 
+              onsort={doSorting} 
+              hide-checkbox-column="true">
+           
+            </lightning-datatable></div>
+        </div>   
+    </lightning-card>
+</template>

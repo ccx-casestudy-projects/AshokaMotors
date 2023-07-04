@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Name_Should_start_in_caps</fullName>
+    <active>true</active>
+    <description>The first letter of name should be in caps</description>
+    <errorConditionFormula>AND(
+NOT(ISBLANK(Name )),
+NOT(REGEX(Name , &quot;[A-Z][a-z]*|[A-Z][a-z]*&quot;)),
+NOT(CONTAINS(Name , &quot;__&quot;)),
+NOT(CONTAINS(Name , &quot; &quot;))
+)</errorConditionFormula>
+    <errorDisplayField>Name</errorDisplayField>
+    <errorMessage>Name field should not be empty &amp; First letter should be in Caps</errorMessage>
+</ValidationRule>

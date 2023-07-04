@@ -1,0 +1,119 @@
+<template>
+    <lightning-card>
+        <c-header-comp></c-header-comp>
+    </lightning-card>
+    <lightning-card>
+        <div class="slds-grid slds-gutters">
+            <div class="slds-align_left-center slds-p-left_large">
+                <div class="slds-align_left-center slds-p-left_xx-small slds-m-top_xxx-small">
+                    <br />
+                    <span  class="slds-p-left_medium">
+                        <lightning-icon icon-name="custom:custom107" size="x-medium" class="slds-size_1-of-9" onclick={gotoHome} title="custom107">
+                        </lightning-icon>
+                       <b><label style="font-size: x-medium; padding: 0 3px ;vertical-align: bottom"  onclick={gotoHome} >HOME</label></b>
+                    </span>
+                </div>
+            </div>
+            <div class="slds-align_absolute-center">
+                <div style="font-weight: bold; color:rgb(170,26,7); font-size:large; text-decoration: underline; margin-left:-20%;">
+                    INSERT REPAIRS
+                </div>
+            </div>
+        </div>
+<br/>
+    <template for:each={itemList} for:item="item" for:index="index">
+       
+            <lightning-record-edit-form key={item.id} object-api-name="AM_Vehicle_Repair_Details__c">
+
+                <lightning-messages> </lightning-messages>
+
+                <lightning-layout multiple-rows>
+
+                    <!--Repair Id-->
+                    <lightning-layout-item padding="around-small" size="10" small-device-size="12" medium-device-size="2">
+                        <label for="subcat"><b>Repair ID</b></label>
+                        <lightning-input-field hidden fieldid="subcat" field-name="AM_Vehicle_Repairs__c" value={repairsId} variant="label-hidden" >
+                        </lightning-input-field>
+                    </lightning-layout-item>
+
+                    <!--Repair Type-->
+                    <lightning-layout-item padding="around-small" size="10" small-device-size="12" medium-device-size="2">
+                        <label for="subcat"><b>Repair Type</b></label>
+                        <lightning-input-field fieldid="subcat" field-name="AM_Vehicle_Repair_Type__c" variant="label-hidden" >
+                        </lightning-input-field>                   
+                    </lightning-layout-item>
+
+                    <!--Repair Sub Type-->
+                    <lightning-layout-item padding="around-small" size="10" small-device-size="12" medium-device-size="2">
+                        <label for="subcat"><b>Repair Sub Type</b></label>
+                        <lightning-input-field fieldid="subcat" field-name="AM_Vehicle_Repair_Sub_Type__c" variant="label-hidden" >
+                        </lightning-input-field>
+                    </lightning-layout-item>
+
+                    <!--Estimated Repair Detail Amount-->
+                    <lightning-layout-item padding="around-small" size="10" small-device-size="12" medium-device-size="2">
+                        <label for="subcat"><b>Estimate Amount</b></label>
+                        <lightning-input-field fieldid="subcat" field-name="AM_Estimated_Repair_Detail_Amount__c" variant="label-hidden" >
+                        </lightning-input-field>
+                    </lightning-layout-item>
+
+                    <!--Actual Repair Detail Amount-->
+                    <lightning-layout-item padding="around-small" size="10" small-device-size="12" medium-device-size="2">
+                        <label for="subcat"><b>Actual Amount</b></label>
+                        <lightning-input-field fieldid="subcat" field-name="AM_Actual_Repair_Detail_Amount__c" variant="label-hidden" >
+                        </lightning-input-field>
+                    </lightning-layout-item>
+
+                    <!--Estimation Vehicle Repair Date-->
+                    <lightning-layout-item padding="around-small" size="10" small-device-size="12" medium-device-size="2">
+                        <label for="subcat"><b>Estimate Repair Date</b></label>
+                        <lightning-input-field fieldid="subcat" field-name="AM_Estimated_Vehicle_Repair_Date__c" variant="label-hidden" >
+                        </lightning-input-field>
+                    </lightning-layout-item>
+
+                    <!--Repair Description-->
+                    <lightning-layout-item padding="around-small" size="10" small-device-size="12" medium-device-size="2">
+                        <label for="subcat"><b>Description</b></label>
+                        <lightning-input-field fieldid="subcat" field-name="AM_Vehicle_Repair_Description__c" variant="label-hidden" >
+                        </lightning-input-field>
+                    </lightning-layout-item>
+
+                    <!--Repair Status-->
+                    <lightning-layout-item padding="around-small" size="10" small-device-size="12" medium-device-size="2">
+                        <label for="subcat"><b>Repair Status</b></label>
+                        <lightning-input-field fieldid="subcat" field-name="AM_Repair_Detail_Status__c" variant="label-hidden">
+                        </lightning-input-field>
+                    </lightning-layout-item>
+        
+                    <!--Buttons:  ADD, DELETE-->
+                    <lightning-layout-item   padding="around-small" margin="top-small" size="10" small-device-size="12" medium-device-size="2">
+                       
+                            <lightning-icon icon-name="action:new" access-key={item.id} id={index}
+                                alternative-text="Add Row" size="small" title="Add Row" onclick={addRow}>
+                            </lightning-icon>
+
+                            &nbsp; &nbsp; 
+                            
+                            <lightning-icon icon-name="action:delete" access-key={item.id} id={index}
+                                alternative-text="Delete Row" size="small" title="Delete Row" onclick={removeRow}>
+                            </lightning-icon>
+                      
+                    </lightning-layout-item>
+                    
+                   
+                </lightning-layout>
+
+            </lightning-record-edit-form>
+
+    </template>
+
+        <!--Submit/Save Records-->
+        
+            <div class="btnClass">
+                <lightning-button variant="brand" onclick={handleSubmit} name="submit" label="Save">
+                </lightning-button>
+            </div>
+        
+    </lightning-card>
+
+</template>

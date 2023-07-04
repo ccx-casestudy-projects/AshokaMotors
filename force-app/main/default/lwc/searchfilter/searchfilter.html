@@ -1,0 +1,351 @@
+<template>
+
+<lightning-card>
+
+  <div class="slds-size_1-of-8, my-input">
+    <lightning-card title="CAR BRANDS" >
+    
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col">
+              <span >
+                <img src="https://commercecx-9f-dev-ed--c.develop.vf.force.com/resource/1682615198000/RenaultN?" alt="Renault	"  onclick={selectedCar} width="100" height="100" style="vertical-align:top; margin-right:10px;"  data-aura-rendered-by="436:0">
+              </span>
+            </div>
+         
+        
+            <div class="slds-col">
+              <span>
+                <img src="https://commercecx-9f-dev-ed--c.develop.vf.force.com/resource/1682512433000/AudiNew?"  alt='Audi' onclick={selectedCar} width="100" height="100"  style="vertical-align:top; margin-right:10px;" data-aura-rendered-by="436:0">
+              </span>
+            </div>
+        
+            <div class="slds-col">
+                <span>
+                  <img src="https://commercecx-9f-dev-ed--c.develop.vf.force.com/resource/1682512407000/HondaNew?" alt='HONDA' onclick={selectedCar} width="100" height="100"  style="vertical-align:top; margin-right:10px;" data-aura-rendered-by="436:0">
+                </span>
+              </div>
+        </div>
+    
+        <br/>
+    
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col">
+              <span>
+                <img src="https://commercecx-9f-dev-ed--c.develop.vf.force.com/resource/1682512255000/ToyotaNew?" alt='Toyota' onclick={selectedCar} width="100" height="100"  style="vertical-align:top; margin-right:10px;" data-aura-rendered-by="436:0">
+              </span>
+            </div>
+            <div class="slds-col">
+              <span>
+                <img src="https://commercecx-9f-dev-ed--c.develop.vf.force.com/resource/1682512187000/MahindraNew?" alt='Mahindra' onclick={selectedCar} width="100" height="100" style="vertical-align:top; margin-right:10px;" data-aura-rendered-by="436:0">
+              </span>
+            </div>
+            <div class="slds-col">
+                <span>
+                  <img src="https://commercecx-9f-dev-ed--c.develop.vf.force.com/resource/1682512225000/BMWNew?" alt='BMW' onclick={selectedCar} width="100" height="100"  style="vertical-align:top; margin-right:10px;" data-aura-rendered-by="436:0">
+                </span>
+              </div>
+        </div>
+    
+        <br/>
+    
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col">
+              <span>
+                <img src="https://commercecx-9f-dev-ed--c.develop.vf.force.com/resource/1682511878000/Suzuki?" alt='Maruti Suzuki' onclick={selectedCar} width="100" height="100"  style="vertical-align:top; margin-right:10px;" data-aura-rendered-by="436:0">
+              </span>
+            </div>
+            <div class="slds-col">
+              <span>
+                <img src="https://commercecx-9f-dev-ed--c.develop.vf.force.com/resource/1682512085000/TataN?" alt='Tata' onclick={selectedCar} width="100" height="100"  style="vertical-align:top; margin-right:10px;" data-aura-rendered-by="436:0">
+              </span>
+            </div>
+            
+            <div class="slds-col">
+                <span>
+                  <img src="https://commercecx-9f-dev-ed--c.develop.vf.force.com/resource/1682512369000/KIANew?" alt='Kia' onclick={selectedCar} width="100" height="100"  style="vertical-align:top; margin-right:10px;" data-aura-rendered-by="436:0">
+                </span>
+              </div>
+        </div>
+    
+        <br/>
+    
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col">
+              <span>
+                <img src="https://commercecx-9f-dev-ed--c.develop.vf.force.com/resource/1682513970000/VolkswagenNew?" alt='Volkswagen	' onclick={selectedCar} width="100" height="100"  style="vertical-align:top; margin-right:10px;" data-aura-rendered-by="436:0">
+          
+              </span>
+            </div>
+    
+            <div class="slds-col">
+              <span>
+                <img src="https://commercecx-9f-dev-ed--c.develop.vf.force.com/resource/1682512334000/MercedesBenzNew" alt='Mercedes-Benz	' onclick={selectedCar} width="100" height="100"  style="vertical-align:top; margin-right:10px;" data-aura-rendered-by="436:0">
+              </span>
+            </div>
+    
+            <div class="slds-col">
+                <span>
+                  <img src="https://commercecx-9f-dev-ed--c.develop.vf.force.com/resource/1682512154000/HyundaiNew?" alt='Hyundai' onclick={selectedCar} width="100" height="100"  style="vertical-align:top; margin-right:10px;" data-aura-rendered-by="436:0">            </span>
+    
+    <br/>
+    
+    
+    <div class="slds-grid slds-gutters">
+      <div class="slds-col">
+        <span>
+          <img src="https://commercecx-9f-dev-ed--c.develop.vf.force.com/resource/1682413335000/FORD?" alt='Ford' onclick={selectedCar} width="100" height="100"  style="vertical-align:top; margin-right:10px;" data-aura-rendered-by="436:0">
+        </span>
+      </div>
+    
+      </div>
+    </div>
+        </div>
+      </lightning-card>
+    </div>
+   
+
+    <div class="slds-grid slds-gutters">
+     
+      <div class="slds-col slds-size_1-of-8">
+      <span>
+        
+      <b> <lightning-input type="text" label="Brand"  class="my-input"  onchange={handlebrand}></lightning-input></b> 
+        <lightning-layout multiple-rows="true" vertical-align="stretch">
+          <lightning-layout-item size="5">  
+             <b> <label for="id"  class="my-input" >Model Year  </label></b>    
+              <lightning-combobox fieldid="id"  class="my-input" options={options1}  onchange={handleKeymakeyear}   label="Model Year" variant="label-hidden" dropdown-alignment="auto">  
+                </lightning-combobox> 
+          </lightning-layout-item> 
+      </lightning-layout>
+        <lightning-layout multiple-rows="true" vertical-align="stretch">
+          <lightning-layout-item  size="5">   
+            <b><label for="id"  class="my-input">Kms Driven</label> </b>  
+          <lightning-combobox fieldid="id" class="my-input" variant="label-hidden" options={options2}  onchange={handlekmsdrive}  label="Fuel Type"  >  
+            </lightning-combobox>
+      </lightning-layout-item>  
+      </lightning-layout>
+    
+          <lightning-layout multiple-rows="true" vertical-align="stretch">
+          <lightning-layout-item  size="5">   
+            <b><label for="id">Fuel Type</label> </b>  
+          <lightning-combobox fieldid="id" variant="label-hidden" class="my-input" options={options3}  onchange={handlefueltype}  label="Fuel Type"  >  
+            </lightning-combobox>
+      </lightning-layout-item>  
+      </lightning-layout>
+    
+    
+      <lightning-layout multiple-rows="true" vertical-align="stretch">
+      <lightning-layout-item size="5" >   
+        <b><label for="id" >Body Type</label> </b>  
+      <lightning-combobox fieldid="id" variant="label-hidden" class="my-input" options={options4}   onchange={handlebodytype}  label="Body Type"  >  
+        </lightning-combobox>
+    </lightning-layout-item>
+    </lightning-layout>
+    
+    <lightning-layout multiple-rows="true" vertical-align="stretch">
+    <lightning-layout-item size="5">   
+       <b> <label for="id">Transmission Type</label></b>   
+      <lightning-combobox fieldid="id" variant="label-hidden" class="my-input" options={options5}  onchange={handletransmissiontype}  label="Transmission Type"  >  
+        </lightning-combobox>
+    </lightning-layout-item>
+    </lightning-layout>
+ 
+    <div class="slds-grid slds-gutters">
+    <div class="slds-col slds-size_1-of-8">
+     
+
+    <div class="slds-color-picker">
+      <section aria-describedby="dialog-body-id-46" class="slds-popover slds-color-picker__selector slds-show" role="dialog">
+      <div class="slds-popover__body" id="dialog-body-id-36">
+      <div class="slds-media">
+      <div class="slds-media__body" onclick={selectedColor}>
+      <ul class="slds-color-picker__swatches" role="listbox" aria-label="Preset colors"  >
+      <b><label style="font-size: 17px">Choose Color</label>
+      </b><br/><br/><br/><br/>
+      <!--Grey Color-->
+      <li class="slds-color-picker__swatch" role="presentation"  >
+          <a class="slds-color-picker__swatch-trigger" href="#" role="option" tabindex="0" >
+          <span class="slds-swatch" style="background:Gray">  
+          </span>
+          </a>
+      </li> 
+  
+      <!--White Color-->
+      <li class="slds-color-picker__swatch" role="presentation">
+          <a class="slds-color-picker__swatch-trigger" href="#" role="option" tabindex="-1">
+          <span class="slds-swatch" style="background:White">
+          </span>
+          </a>
+      </li>  
+  
+      <!--Black Color-->
+      <li class="slds-color-picker__swatch" role="presentation">
+          <a class="slds-color-picker__swatch-trigger" href="#" role="option" tabindex="-1">
+          <span class="slds-swatch" style="background:Black">
+          </span>
+          </a>
+      </li>  
+  
+      <!--Silver Color-->
+      <li class="slds-color-picker__swatch" role="presentation">
+          <a class="slds-color-picker__swatch-trigger" href="#" role="option" tabindex="-1">
+          <span class="slds-swatch" style="background:Silver">
+          </span>
+          </a>
+          </li>    
+  
+      <!--Blue Color-->
+      <li class="slds-color-picker__swatch" role="presentation">
+          <a class="slds-color-picker__swatch-trigger" href="#" role="option" tabindex="-1">
+          <span class="slds-swatch" style="background:Blue">
+          </span>
+          </a>
+      </li>
+  
+      <!--Red Color-->
+      <li class="slds-color-picker__swatch" role="presentation">
+              <a class="slds-color-picker__swatch-trigger" href="#" role="option" tabindex="-1">
+              <span class="slds-swatch" style="background:Red">
+              </span>
+              </a>
+      </li>    
+  
+      <!--Green Color-->
+      <li class="slds-color-picker__swatch" role="presentation">
+          <a class="slds-color-picker__swatch-trigger" href="#" role="option" tabindex="-1">
+          <span class="slds-swatch" style="background:Green">
+          </span>
+          </a>
+      </li>
+  
+      <!--Brown Color-->
+      <li class="slds-color-picker__swatch" role="presentation">
+          <a class="slds-color-picker__swatch-trigger" href="#" role="option" tabindex="-1">
+          <span class="slds-swatch" style="background:Brown">
+          </span>
+          </a>
+      </li>
+  
+      <!--Beige Color-->
+      <li class="slds-color-picker__swatch" role="presentation">
+          <a class="slds-color-picker__swatch-trigger" href="#" role="option" tabindex="-1">
+          <span class="slds-swatch" style="background:Beige">
+          </span>
+          </a>
+      </li>   
+  
+      <!--Yellow Color-->
+      <li class="slds-color-picker__swatch" role="presentation">
+      <a class="slds-color-picker__swatch-trigger" href="#" role="option" tabindex="-1">
+      <span class="slds-swatch" style="background:Yellow">
+      </span>
+      </a>
+      </li>
+  
+     <!--Violet Color-->
+      <li class="slds-color-picker__swatch" role="presentation">
+      <a class="slds-color-picker__swatch-trigger" href="#" role="option" tabindex="-1">
+      <span class="slds-swatch" style="background:Violet">
+      </span>
+      </a>
+      </li>
+  
+      <!--Purple Color-->
+      <li class="slds-color-picker__swatch" role="presentation">
+      <a class="slds-color-picker__swatch-trigger" href="#" role="option" tabindex="-1">
+      <span class="slds-swatch" style="background:Purple">
+      </span>
+      </a>
+      </li>
+  
+      <!--Orange Color-->
+      <li class="slds-color-picker__swatch" role="presentation">
+      <a class="slds-color-picker__swatch-trigger" href="#" role="option" tabindex="-1">
+      <span class="slds-swatch" style="background:Orange">
+      </span>
+      </a>
+      </li>
+  
+      <!--Maroon Color-->
+      <li class="slds-color-picker__swatch" role="presentation">
+      <a class="slds-color-picker__swatch-trigger" href="#" role="option" tabindex="-1">
+      <span class="slds-swatch" style="background:Maroon">
+      </span>
+      </a>
+      </li>
+  
+      <!--Gold Color-->
+      <li class="slds-color-picker__swatch" role="presentation">
+          <a class="slds-color-picker__swatch-trigger" href="#" role="option" tabindex="-1">
+          <span class="slds-swatch" style="background:gold">
+          </span>
+          </a>
+          </li>
+      </ul>
+      </div>
+      </div>
+      </div>
+      </section>
+      </div>
+    </div>
+  </div>
+
+
+   <br/>
+  <lightning-button label="Search" variant="brand" onclick={handlesearch}></lightning-button><br/>
+
+      </span>
+      </div>
+    
+
+
+    <div class="slds-col slds-size_1-of-2">
+      <span>
+
+        <template if:true={records}>
+          <div class="slds-card__body_inner">
+            
+            <lightning-layout multiple-rows="true" pull-to-boundary="small">
+            
+              <template for:each={records} for:item="record">
+                <lightning-layout-item key={record.Id} size="3" class="slds-var-p-around_x-small">
+                 
+                 <lightning-card class="card-style" >
+                    <div class="slds-var-p-horizontal_small bear-tile-body">
+                      <div class="slds-media">
+                        <div class="slds-media__figure">
+                       <template for:each={record.AM_Vehicle_Images__r} for:item="cont">
+                            <div key={cont.Id}  class="image-container">
+                            
+                              <!--<img src={cont.AM_Vehicle_Main_Image__c} style="border-radius: 40px;" height="200px" width="180px"/>-->
+                              <div class="text-overlay">${record.AM_Make_Year__c}</div>
+                            </div>
+                            
+                          </template>
+                          
+        
+                          
+                        </div>
+                        
+                      </div>
+                      <p slot="footer"><b> {record.AM_Fuel_Type__c}  {record.AM_Body_Type__c} {record.AM_Make_Year__c}</b><br>
+                         starting from <b>$ {record.AM_Transmission_Type__c}</b> <b>{record.KMS_Travelled__c}</b>                
+                      </p>
+                    </div>
+                  </lightning-card>
+                  
+                </lightning-layout-item>
+              </template>
+            </lightning-layout>
+          </div>
+        </template>
+
+      </span>
+    </div>
+
+
+  
+  </div>
+
+</lightning-card>
+</template>

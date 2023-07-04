@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AllProducts</fullName>
+    <columns>AM_Vehicle_Registration_Number__c</columns>
+    <columns>PRODUCT2.NAME</columns>
+    <columns>AM_Brand__c</columns>
+    <columns>AM_Body_Type__c</columns>
+    <columns>AM_Fuel_Type__c</columns>
+    <columns>AM_Make_Year__c</columns>
+    <columns>AM_Vehicle_Status__c</columns>
+    <columns>AM_Transmission_Type__c</columns>
+    <columns>AM_Vehicle_Color__c</columns>
+    <columns>AM_Vehicle_Type__c</columns>
+    <columns>AM_Fuel_Cost__c</columns>
+    <columns>AM_Profit__c</columns>
+    <columns>AM_Repair_Amount__c</columns>
+    <columns>AM_Repair_Required__c</columns>
+    <columns>AM_Customer__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All AM Vehicles</label>
+</ListView>

@@ -1,0 +1,16 @@
+<template>
+    <div class="slds-grid slds-wrap">
+        <template if:true={vehicles}>
+            <template for:each={vehicles} for:item="vehicle">
+                <div key={vehicle.Id} class="slds-col slds-size_1-of-2 slds-p-around_small">
+                    <lightning-card title={vehicle.Name}>
+                        <p>Year:{vehicle.AM_Make_Year__c}</p>
+                        <p>Kms:{vehicle.KMS_Travelled__c}</p>
+                        <p>Variant:{vehicle.AM_Variant__c}</p>
+                        <p>Price:{vehicle.AM_Vehicle_Final_Amount__c}</p>
+                    </lightning-card>
+                </div>
+            </template>
+        </template>
+    </div>
+</template>

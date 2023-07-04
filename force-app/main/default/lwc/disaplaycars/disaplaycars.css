@@ -1,0 +1,163 @@
+:host { --lwc-formLabelFontSize:22px; }
+.scrollable-section {
+  height: 60vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+ /* scrollbar-width: thin;*/
+ 
+}
+
+
+
+/*
+.scrollable-section::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollable-section::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+*/
+
+
+
+
+
+/* slds card */
+.slds-card {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  border-radius: 8px;
+  margin-bottom: 7px;
+  width: 460px; /* Set your desired width here */
+  height: 300px; /* Set your desired height here */
+
+}
+/*image */
+.slds-image {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  width: 100%;
+  height: 0;
+  padding-bottom: 75%;
+}
+
+.slds-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.slds-image__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.slds-image__overlay:hover {
+  opacity: 1;
+}
+
+
+.slds-col.slds-size_1-of-2:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.slds-m-bottom_small {
+  margin-bottom: 8px;
+}
+
+.slds-text-heading_medium {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.slds-text-heading_small {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.slds-align_absolute-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* favourite icon
+.star-icon {
+  position: absolute;
+  top: 3px;
+  right: 10px;
+  font-size: 24px;
+  color: gold;
+}
+*/
+
+.my-input {
+  width: 156px;
+ 
+}
+/* sls box container */
+.slds-box {
+  width: 182px;
+}
+
+.slds-color-picker__swatch {
+  width: 8px; /* Adjust the width value as per your requirement */
+}
+.slds-color-picker__swatches {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+.toggle-button {
+  display: inline-block;
+  position: relative;
+  width: 46px;
+  height: 24px;
+  border-radius: 34px;
+  background-color: #ccc;
+  cursor: pointer;
+}
+
+.inner-button {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #ff3b30;
+  transition: transform 0.2s ease;
+}
+
+.inner-button[data-active="true"] {
+  background-color: #4cd964;
+  transform: translateX(26px);
+}

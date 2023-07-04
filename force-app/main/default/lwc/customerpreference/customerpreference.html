@@ -1,0 +1,101 @@
+<template>
+    <lightning-card>
+        <h3 slot="title">
+            <lightning-icon icon-name="standard:timesheet" alternative-text="Event" size="large"></lightning-icon>
+            &nbsp;Insert Multiple Enquires
+        </h3>
+
+        <template for:each={itemList} for:item="item" for:index="index">
+
+            <lightning-record-edit-form key={item.id} object-api-name="AM_Customer_Enquiry__c">
+
+                <lightning-messages> </lightning-messages>
+
+                <lightning-layout multiple-rows>
+
+
+
+                    <!--Brand-->
+                    <lightning-layout-item padding="around-small" size="7" small-device-size="12"
+                        medium-device-size="3">
+                        <label for="subcat"><b>Brand</b></label>
+                        <lightning-input-field fieldid="subcat" field-name="AM_Brand__c" variant="label-hidden"
+                            >
+                        </lightning-input-field>
+                        <label for="subcat"><b>Customer</b></label>
+                        <lightning-input-field fieldid="subcat" field-name="AM_Customer__c" variant="label-hidden"
+                        >
+                    </lightning-input-field>
+                    </lightning-layout-item>
+
+                    <!--Model Year-->
+                    <!--<lightning-layout-item padding="around-small" size="7" small-device-size="12"
+                        medium-device-size="3">
+                        <label for="subcat"><b>Model Year</b></label>
+                        <lightning-input-field fieldid="subcat" field-name="AM_Make_Year__c" variant="label-hidden"
+                           >
+                        </lightning-input-field>
+                    </lightning-layout-item>
+
+                  
+                    <lightning-layout-item padding="around-small" size="7" small-device-size="12"
+                        medium-device-size="3">
+                        <label for="subcat"><b>Color</b></label>
+                        <lightning-input-field fieldid="subcat" field-name="AM_Vehicle_Color__c" variant="label-hidden"
+                            >
+                        </lightning-input-field>
+                    </lightning-layout-item>
+
+                    
+                    <lightning-layout-item padding="around-small" size="7" small-device-size="12"
+                        medium-device-size="3">
+                        <label for="subcat"><b>Fuel</b></label>
+                        <lightning-input-field fieldid="subcat" field-name="AM_Fuel_Type__c" variant="label-hidden"
+                            >
+                        </lightning-input-field>
+                    </lightning-layout-item>
+
+                   
+                    <lightning-layout-item padding="around-small" size="7" small-device-size="12"
+                        medium-device-size="3">
+                        <label for="subcat"><b>Transmission Type</b></label>
+                        <lightning-input-field fieldid="subcat" field-name="AM_Transmission_Type__c"
+                            variant="label-hidden" >
+                        </lightning-input-field>
+                    </lightning-layout-item>
+
+                -->
+
+                    <!--Buttons:  ADD, DELETE-->
+                    <lightning-layout-item class="slds-align_absolute-center" padding="around-small" size="10"
+                        small-device-size="12" medium-device-size="3">
+
+                        <lightning-icon icon-name="action:new" access-key={item.id} id={index}
+                            alternative-text="Add Row" size="small" title="Add Row" onclick={addRow}>
+                        </lightning-icon>
+
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
+                        <lightning-icon icon-name="action:delete" access-key={item.id} id={index}
+                            alternative-text="Delete Row" size="small" title="Delete Row" onclick={removeRow}>
+                        </lightning-icon>
+
+                    </lightning-layout-item>
+
+
+                </lightning-layout>
+
+            </lightning-record-edit-form>
+
+        </template>
+
+        <!--Submit/Save Records-->
+        <lightning-layout>
+            <div class="slds-align_absolute-center button-container">
+                <lightning-button variant="success" onclick={handleSubmit} name="submit" label="Save">
+                </lightning-button>
+            </div>
+        </lightning-layout>
+    </lightning-card>
+
+</template>

@@ -1,0 +1,162 @@
+<template>
+    <lightning-card>
+        <div>
+            <c-header-comp></c-header-comp>
+        </div>
+    </lightning-card>
+
+    <lightning-card>
+
+       <div class="slds-grid slds-gutters">
+            <div class="slds-col">
+                <span  class="slds-p-left_medium">
+                  <lightning-icon icon-name="custom:custom107" size="x-medium" class="slds-size_1-of-9" onclick={goToMainScreen} title="custom107">
+                  </lightning-icon>
+                 
+                  <b><label style="font-size: x-medium; padding: 0 3px ;vertical-align: bottom"  onclick={goToMainScreen} >HOME</label></b>
+                </span>
+            </div>
+            
+            <div class="slds-col">
+                <span>
+                  <b><h1  style="font-size:large ; color: rgb(170, 26, 7) ;" >ALL VEHICLE MANAGEMENT</h1></b>
+                </span>
+            </div>
+        </div>
+
+
+        <div>
+            <span>
+
+                <lightning-accordion allow-multiple-sections-open active-section-name={activeSections}>
+                    <b><lightning-accordion-section name="A" label="Apply Filter" class="slds-clearfix">
+
+
+                            <div class="slds-grid slds-wrap">
+                                <div class="slds-col slds-size_3-of-12">
+                                  <span>
+                                  <label for="id"><b>Vehicle Number</b></label>
+                                    <b><lightning-input for="id" type="search"  placeholder="Search"
+                                        value={searchTerm4} onchange={handleSearch4} style="width: 75%;" >
+                                    </lightning-input></b>
+                                  </span>
+                                </div> 
+
+                                <div class="slds-col slds-size_3-of-12 ">
+                                  <span>
+                                  <label for="id"><b>Vehicle Registartion Number</b></label>
+                                        <b><lightning-input   type="search" placeholder="Search"
+                                            value={searchTerm1} onchange={handleSearch1} style="width: 75%;" >
+                                        </lightning-input>
+                                        </b>
+                                      </span>
+                                </div>
+
+                                <div class="slds-col slds-size_3-of-12">
+                                  <span>
+                                  <label for="id"><b>Vehicle Brand</b></label>
+                                        <b><lightning-input    type="search" placeholder="Search"
+                                            value={searchTerm2} onchange={handleSearch2} style="width: 75%;" >
+                                        </lightning-input></b>
+                                      </span>
+                                </div>
+
+                                <div class="slds-col slds-size_3-of-12 ">
+                                  <span>
+                                  <label for="id"><b>Vehicle Model</b></label>
+                                    <b><lightning-input  type="search" placeholder="Search"
+                                        value={searchTerm3} onchange={handleSearch3} style="width: 75%;" >
+                                    </lightning-input></b>
+                                  </span>
+                                </div>
+
+                            </div>
+                        </lightning-accordion-section></b>
+
+                    <b><lightning-accordion-section name="B" label="Vehicles Data">
+                            <div class="myTable">
+                                <b class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered">
+                                  <lightning-datatable class="" key-field="Id" data={Vehicles.data} columns={columns}
+                                        onrowaction={handleRowAction} sorted-by={sortBy}
+                                        sorted-direction={sortDirection} onsort={doSorting}>
+                                    </lightning-datatable></b>
+                            </div>
+                        </lightning-accordion-section></b>
+
+                </lightning-accordion>
+
+            </span>
+        </div>
+
+
+        <br />
+        <br />
+        <template if:true={isModalOpen}>
+            <!-- Modal/Popup Box LWC starts here -->
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+              aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+              <div class="slds-modal__container">
+                <!-- Modal/Popup Box LWC header here -->
+                <header class="slds-modal__header">
+                  <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close"
+                    onclick={closeModal}>
+                    <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse"
+                      size="small"></lightning-icon>
+                    <span class="slds-assistive-text">Close</span>
+                  </button>
+                  <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate" >
+                  <b style="font-weight: bold; color:rgb(170,26,7); font-size:large; text-decoration: underline; margin-left:-20%;"> EDIT VEHICLE DETAILS </b>
+                   </h2>
+                </header>
+              <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+      
+                
+                      <lightning-record-edit-form object-api-name="Product2" record-id={recordId} onsuccess={handleSuccess}>
+                        <lightning-messages></lightning-messages>
+      
+      
+                        
+                            <label for="CustomerDetails"><b>Vehicle Registration Number</b></label>
+                            <lightning-output-field for="CustomerDetails" variant="label-hidden"
+                              field-name="Name"></lightning-output-field>
+      
+                            <label for="CustomerDetails"><b>Vehicle Status</b></label>
+                            <lightning-input-field for="CustomerDetails" variant="label-hidden"
+                              field-name="AM_Vehicle_Status__c" required></lightning-input-field>
+      
+                            <label for="CustomerDetails"><b>Profit</b></label>
+                            <lightning-input-field for="CustomerDetails" variant="label-hidden"
+                              field-name="AM_Profit__c" ></lightning-input-field>
+                        
+                            <label for="CustomerDetails"><b>Fuel Cost</b></label>
+                            <lightning-input-field for="CustomerDetails" variant="label-hidden"
+                                field-name="AM_Fuel_Cost__c" ></lightning-input-field>
+
+                            <label for="CustomerDetails"><b>Repair Required</b></label>
+                            <lightning-input-field for="CustomerDetails" variant="label-hidden"
+                                  field-name="AM_Repair_Required__c" ></lightning-input-field>
+                      
+      
+                        <div class="slds-m-top_medium">
+                          <lightning-button class="slds-align_absolute-center" type="submit" label="Save"
+                            variant="brand-outline" onchange={handleSuccess}></lightning-button>
+                        </div>
+      
+      
+                      </lightning-record-edit-form>
+                   
+
+      </div>
+      
+        <!-- Modal/Popup Box LWC footer starts here -->
+                <footer class="slds-modal__footer">
+                  <button class="slds-button slds-button_neutral" onclick={closeModal} title="Cancel">Cancel</button>
+                  <button class="slds-button slds-button_brand" onclick={NavToRepairs} title="OK">Go To Repairs</button>
+                </footer>
+              </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+          </template>
+
+    </lightning-card>
+</template>

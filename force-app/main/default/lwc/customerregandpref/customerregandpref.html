@@ -1,0 +1,173 @@
+<template>
+    <lightning-card>
+        <c-header-comp></c-header-comp>
+    </lightning-card>
+        <lightning-card>
+        <lightning-button variant="brand" label="Home" icon-name="standard:home" onclick={gotoHome}
+            style="padding-left:10px; ">
+        </lightning-button>
+
+
+       
+            <div class="slds-align_absolute-center">
+            <b><label for="id" style="font-size: large; text-align: center; color: rgb(170,26,7);padding-right:30px;">Select Type Of
+                    Customer</label></b><br/>
+             </div>
+             <div class="slds-align_absolute-center">
+            <b><lightning-radio-group style=" font-size: xx-large ;color:rgb(255, 70, 35) " options={options}
+                    value={selectedValue} onchange={handleChange}></lightning-radio-group></b>
+            </div>
+
+        <template if:true={excustomer}>
+            <template if:true={selectedValue}>
+            <c-customerexistingandpreferences onaction={handleChildAction}></c-customerexistingandpreferences>
+        </template>
+        </template>
+       
+            <div data-id="curtainModal" id="curtainModal" class="overlay">
+                <lightning-button-icon icon-name="utility:close" variant="bare-inverse" class="closebtn" onclick={closeModal}
+                  size="large"></lightning-button-icon>
+                <!---->
+                <div class="overlay-content">
+
+
+                    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                    aria-describedby="modal-content-id-1" class="slds-modal_large">
+                    <div class="slds-modal__container">
+                   
+                        <lightning-card>
+                            <c-header-comp></c-header-comp>
+                        </lightning-card>
+                        <lightning-card>
+                            <template if:true={isStepOne}>
+                            <div class="slds-align_absolute-center">  <b><label for="id" class="slds-text-heading_medium slds-hyphenate"
+                                style="font-size:x-large; font-weight:bold; color: rgb(170,26,7); text-decoration:underline; margin-left:-20px;">ENTER NEW CUSTOMER DETAILS</label></b></div>
+                         
+                            </template>
+                            <template if:true={isStepTwo}>
+                                <div class="slds-align_absolute-center">  <b><label for="id" class="slds-text-heading_medium slds-hyphenate"
+                                    style="font-size:x-large; font-weight:bold; color: rgb(170,26,7); text-decoration:underline; margin-left:-20px;">ENTER NEW CUSTOMER PREFERENCES</label></b></div>
+                             
+                                </template>
+                                   &nbsp;       
+                        <div class="progress-indicator-container">
+                            <lightning-progress-indicator current-step={currentStep} type="path" variant="path">
+
+                                <lightning-progress-step label="Customer Information" value="1"
+                                    onclick={handleOnStepClick}></lightning-progress-step>
+                                <lightning-progress-step label="Customer Preferences" value="2"
+                                    onclick={handleOnStepClick}></lightning-progress-step>
+
+                            </lightning-progress-indicator>
+                        </div><br />
+                        <template if:true={isStepOne}>
+                            <div class={sectionClass1}>
+
+
+                                <div class="slds-grid slds-gutters">
+                                    <div class="slds-col">
+                                        <span>
+
+                                        </span>
+                                    </div>
+                                    <div class="slds-col slds-align_absolute-center">
+                                        <span>
+
+                                            <b><lightning-input label="Name" name="LastName"
+                                                    onchange={handleUserNameChange2}></lightning-input></b>
+                                            <b> <lightning-input label="Email" name="Email"
+                                                    onchange={handleUserNameChange3}></lightning-input></b>
+                                            <b><lightning-input label="Phone Number" name="Phone Number"
+                                                    onchange={handleUserNameChange4}></lightning-input></b>
+
+
+                                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
+                                        </span>
+                                    </div>
+                                    <div class="slds-col">
+                                        <span>
+                                        </span>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                            <div class="savebtn">
+
+                                <lightning-button size="x-large" class="slds-align_absolute-center" variant="brand" label="Save" title="Primary action with lighter look"
+                                    onclick={CreateRec} ></lightning-button>
+
+                            </div>
+                        </template>
+                        <template if:true={isStepTwo}>
+
+                            <div class={sectionClass2}>
+
+                                <template for:each={itemList} for:item="item" for:index="index">
+
+                                    <lightning-record-edit-form key={item.id}
+                                    object-api-name="AM_Customer_Enquiry__c">
+     
+                                    <lightning-messages> </lightning-messages>
+     
+                                    <lightning-layout multiple-rows>
+
+                                        <lightning-layout-item padding="around_x-small" size="7" small-device-size="12" medium-device-size="2">
+                                         <label for="subcat"><b>Brand</b></label>&nbsp;
+                                            <lightning-input-field class="subcat" fieldid="subcat" field-name="AM_Brand__c" variant="label-hidden"></lightning-input-field>
+                                            
+                                     </lightning-layout-item>
+                                        <lightning-layout-item padding="around_x-small" size="7" small-device-size="12" medium-device-size="2">
+                                         <label for="subcat"><b>Model </b></label>
+                                         <lightning-input-field fieldid="subcat" field-name="AM_Model__c" variant="label-hidden">
+                                         </lightning-input-field>
+                                     </lightning-layout-item>
+                                     <lightning-layout-item padding="around_x-small" size="7" small-device-size="12" medium-device-size="2">
+                                         <label for="subcat"><b>Make Year</b></label>
+                                         <lightning-input-field fieldid="subcat" field-name="AM_Make_Year__c"  variant="label-hidden">
+                                         </lightning-input-field>
+                                     </lightning-layout-item>
+                                     <lightning-layout-item padding="around_x-small" size="7"  small-device-size="12" medium-device-size="2">
+                                         <label for="subcat"><b>Fuel Type</b></label>
+                                         <lightning-input-field fieldid="subcat" field-name="AM_Fuel_Type__c" variant="label-hidden">
+                                         </lightning-input-field>
+                                     </lightning-layout-item>
+                                        <lightning-layout-item padding="around-small" size="10" small-device-size="12" medium-device-size="2">
+                                            <lightning-icon icon-name="action:new" access-key={item.id} id={index} alternative-text="Add Row"
+                                                size="small" title="Add Row" onclick={addRow}></lightning-icon>
+                                       &ensp;&ensp;
+                                            <lightning-icon icon-name="action:delete" access-key={item.id} id={index} alternative-text="Delete Row"
+                                                size="small" title="Delete Row" onclick={removeRow}></lightning-icon>
+                                        </lightning-layout-item>
+                                    </lightning-layout>
+                                    <lightning-layout-item padding="around_x-small" size="7" small-device-size="12" medium-device-size="2">
+                                        <div class="hidden-field">
+                                          <label for="subcat"><b>Customer</b></label>
+                                          <lightning-input-field fieldid="subcat" field-name="AM_Customer__c" variant="label-hidden"
+                                              value={newcustid}></lightning-input-field>
+                                      </div>
+    
+                                       </lightning-layout-item>
+                                    
+                            </lightning-record-edit-form>
+
+                                </template>
+
+                                <div class="savebtn">
+
+                                    <lightning-button variant="brand" label="Save"
+                                        title="Primary action with lighter look" onclick={handleSubmit}
+                                        class="slds-m-left_x-small"></lightning-button>
+                                </div>
+                            </div>
+                        </template>
+</lightning-card>
+                </div>
+            </section>
+            </div>
+            </div>
+
+</lightning-card>
+</template>

@@ -1,0 +1,69 @@
+<template>
+<lightning-card>
+    <c-header-comp></c-header-comp>
+</lightning-card>
+<lightning-card>
+    <div class="slds-grid slds-gutters">
+        <div class="slds-align_left-center slds-p-left_large slds-m-top_medium">
+            <span>
+                <b><lightning-button icon-name="standard:home" label="Home" onclick={CallMain}>
+                    </lightning-button></b>
+            </span>
+        </div>
+        <div class="slds-align_absolute-center">
+            <h1 class="cardClass"> &ensp;&ensp;&ensp;
+                <b style="text-decoration: underline;">CAR SALES DETAILS</b>  
+            </h1>
+        </div>
+
+    </div>
+<br/>
+
+
+
+    <template if:true={showbrandpopup}>
+        <div class="popup-container">
+            <div class="popup-content">
+                <div class="close-icon" onclick={closebrandPopup}>
+                    <lightning-icon icon-name="utility:close" size="small"></lightning-icon>
+                </div>
+                <lightning-combobox fieldid="id" class="my-input" options={brandoptions} onchange={handlebrandsearch}
+                    label="brand" variant="label-hidden" dropdown-alignment="auto">
+                </lightning-combobox>
+            </div>
+        </div>
+      </template>
+    
+        <div class="slds-grid slds-gutters ">
+            
+            <div class="slds-col slds-size_1-of-5 ">
+                <b><lightning-input type="date" label="Search By Date" placeholder="Search" value={searchTerm}
+                    onchange={handleSearch} style="width: 250px;"></lightning-input></b>
+            </div>
+            
+            <div class="slds-col slds-size_1-of-5 ">
+                <b> <lightning-combobox  label="Search By Month" value={getmonth}
+                    placeholder="Select Month" options={options2} onchange={changeMonth}
+                    style="width: 250px;"></lightning-combobox></b>
+            </div>
+            <div class="slds-col slds-size_1-of-5 ">
+                <span>
+                    <b> <lightning-combobox  label="Search By Year" value={getYear}
+                            placeholder="Select Year" options={options1} onchange={changeYear}
+                            style="width: 250px;"></lightning-combobox></b>
+                </span>
+            </div>
+        </div>
+
+        <br />
+
+        <div class="myTable">
+            <b class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered">
+                <lightning-datatable key-field="Id" data={cases} columns={columns} onrowaction={handleRowAction}
+                    sorted-by={sortBy} sorted-direction={sortDirection} onsort={doSorting}  hide-checkbox-column
+                    onheaderaction={handleHeaderAction}>
+                </lightning-datatable></b>
+        </div>
+
+    </lightning-card>
+</template>

@@ -1,0 +1,17 @@
+<template>
+    
+    <lightning-card title="AM Customer" icon-name="standard:people">
+        <div class="backgroundImg"  >
+        <div class="slds-m-around_medium" >
+            <lightning-record-form
+                object-api-name={objectApiName}
+                fields={Fields1}
+                onsuccess={recordCreated}
+                columns="2"
+               >
+            </lightning-record-form>
+        </div>
+    </div>
+    </lightning-card>
+    
+</template>

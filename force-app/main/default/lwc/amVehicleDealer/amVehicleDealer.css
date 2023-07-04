@@ -1,0 +1,67 @@
+.cardLevel{
+    font-family:  Verdana, Arial, Helvetica, sans-serif;
+    font-size: medium;
+
+}
+.slds-button_stretch{
+    background-color: #4CAF50;
+    color: #ffffff;
+}
+.cardClass{
+   
+    font-family:  Verdana, Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: large;
+    text-align: center;
+    color: rgb(170,26,7);
+   
+}
+.progress-indicator-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.butnClass{
+    text-align: right;
+    padding-right: 10px;
+}
+.savebtn{
+    text-align: center;
+}
+.sectionClass7{
+    text-align: center;
+}
+.label{
+    text-align: center;
+    font-weight: bold;
+    color: rgb(170,26,7);
+}
+.docReq{
+    padding-left: 10px;
+    font-size: medium;
+    font-family: 'Courier New', Courier, monospace;
+}
+.vehimg{
+    text-align: center;
+}
+:host{
+    
+    --slds-c-button-brand-color-background:rgb(13, 121, 39);
+    --slds-c-button-brand-color-background-hover:rgb(13, 121, 39);
+    --slds-c-button-brand-color-border:White;
+    --slds-c-button-brand-text-color:White;
+
+    --slds-c-button-destructive-color-background:rgb(176, 26, 7);
+    --slds-c-button-destructive-color-background-hover:rgb(176, 26, 7);
+    --slds-c-button-destructive-color-border:White;
+    --slds-c-button-destructive-text-color:White;
+    
+}
+.rdCls{
+    font-family:  Verdana, Arial, Helvetica, sans-serif;
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: large;
+    text-align: center;
+    color: rgb(170,26,7);
+}

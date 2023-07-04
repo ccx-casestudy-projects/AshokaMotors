@@ -1,0 +1,33 @@
+.cardClass{
+   
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-weight: bold;
+    font-size: 20px;
+    
+    color: rgb(170,26,7);
+   
+}
+.slds-truncate{
+    font-weight: bold;
+}
+.slds-section__title-action{
+    background-color: rgb(211, 255, 211);
+}
+.divCls{
+    font-size: 14px;
+}
+button 
+{
+    font-weight: bold;
+}
+
+.p1{
+    color:orangered;
+}
+.h1
+  {
+    
+      color:red;
+     font-size: medium;
+      
+    }

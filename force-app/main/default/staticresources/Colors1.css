@@ -1,0 +1,22 @@
+.myTable table>thead .slds-has-button-menu,
+.myTable table>thead .slds-has-button-menu:hover {
+    color: white;
+    text-border: black;
+    border: 2px solid black;
+    background: rgb(13, 121, 39);
+    font-size: 15px;
+    font-border: 2px solid black;
+}
+.myTable table>thead .slds-has-button-menu:hover 
+{
+    background: rgb(176, 26, 7);
+	color:grey;
+}
+.slds-table .slds-truncate {
+	
+    max-width: 100%;
+    overflow: hidden;	
+    text-overflow: ellipsis;
+    white-space: pre-wrap;
+	  
+}

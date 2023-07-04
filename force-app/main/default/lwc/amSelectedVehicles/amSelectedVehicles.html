@@ -1,0 +1,89 @@
+<template>
+  <lightning-card>
+    <c-header-comp></c-header-comp>
+    <div class="slds-grid" >
+
+      <div style="text-align: left; padding-left: 10px; margin-bottom:-10px;">
+        <lightning-button variant="destructive" label="<--Back" onclick={handleBack}></lightning-button>
+      </div>
+
+      <div class="slds-col" style="text-align: right; padding-right: 10px; margin-bottom:-10px;">
+        <lightning-button variant="destructive" label="Save Selected Cars" onclick={handleSave}></lightning-button>
+        <lightning-button variant="destructive" label="Get Quote" onclick={getquoteforall}></lightning-button>
+      </div>
+
+    </div>
+    <br />
+    <div class="slds-grid slds-wrap bg-light-grey slds-align_absolute-center">
+      <template for:each={records} for:item="car">
+        <div key={car.Id} class="slds-col
+              slds-size_1-of-3 slds-p-around_medium">
+        <article class="slds-card slds-card_boundary">
+          <lightning-card class="slds-card ">
+            <p slot="title" class="slds-box">
+              <b>{car.AM_Make_Year__c} {car.AM_Brand__c} {car.AM_Vehicle_Model__c}</b><br />
+            </p>
+            <p class="bodyImg">
+              <template for:each={car.AM_Vehicle_Images__r} for:item="cont">
+                <div key={cont.Id} class="slds-p-around_small">
+                  <div class="slds-image slds-align_absolute-center">
+                    <img src={cont.AM_Vehicle_Main_Image__c} />
+
+                  </div>
+                </div>
+              </template>
+            </p>
+            <div style="margin-top:-25px; padding-left: 18%; font-size:medium">
+              <ul >
+                <li><b >Price</b>   : <b style="color:rgb(192, 3, 3); ">₹
+                    {car.AM_Customer_Selling_Price__c}</b>
+                </li>
+                <li ><b>KM Driven</b>    : <b style="color:rgb(192, 3, 3);">
+                    {car.AM_Kms_Driven__c}</b>
+                </li>
+                <li><b>Variant</b> : <b
+                    style="color:rgb(192, 3, 3);">{car.AM_Variant__c}</b>
+                </li>
+                <li><b>Fuel Type</b>   :<b style="color:rgb(192, 3, 3);">
+                    {car.AM_Fuel_Type__c}</b>
+                </li>
+                <li><b>Vehicle Capacity</b> :<b style="color:rgb(192, 3, 3);">
+                    {car.AM_Vehicle_Capacity__c}</b>
+                </li>
+                <li><b>Transmission Type</b>   :<b style="color:rgb(192, 3, 3);">
+                    {car.AM_Transmission_Type__c}</b>
+                </li>
+                <li><b > Color </b> :<b style="color:rgb(192, 3, 3);">
+                    {car.AM_Vehicle_Color__c}</b>
+                </li>
+              </ul><br />
+            </div>
+            <div class="slds-grid slds-wrap">
+              <div class="slds-align_absolute-left slds-p-left_large" style="padding-left: 17%;">
+                
+              </div>
+              <div class="slds-align_absolute-right slds-p-right_large " style="padding-left: 14%;">
+               
+              </div>
+            </div>
+
+
+            <p slot="footer">
+              <lightning-button variant="destructive" label="Remove" onclick={handleRemove} value={car.Id} style="font-weight: bold;"></lightning-button>
+              <lightning-button data-id={car.Id} variant="Brand" label="Get Quote" onclick={handleQuote}
+              style="font-weight: bold; padding-left: 10px" ></lightning-button>
+              
+             
+
+              <lightning-button data-id={car.Id} variant="Brand" label="Go To Billing"
+              onclick={handleBilling} style="font-weight: bold; padding-left: 10px"></lightning-button>
+            </p>
+
+          </lightning-card>
+        </article>
+        </div>
+      </template>
+    </div>
+
+  </lightning-card>
+</template>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Vehicle_Chassis_No</fullName>
+    <active>false</active>
+    <description>Vehicle Chassis Number should be 17 Digits.</description>
+    <errorConditionFormula>NOT( REGEX( AM_Chassis_Number__c,&quot;^[A-Z0-9]{17}&quot;) )</errorConditionFormula>
+    <errorDisplayField>AM_Chassis_Number__c</errorDisplayField>
+    <errorMessage>Vehicle Chassis Number should be 17 Digits.</errorMessage>
+</ValidationRule>

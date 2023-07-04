@@ -1,0 +1,27 @@
+<template>
+<lightning-card>
+        <div class="slds-grid slds-gutters">
+
+                <div class="slds-col ">
+                  <span>
+                        <c-l-w-c-sliders slides-data={sliderData} custom-height="550px" custom-width="200%" auto-scroll={autoScroll}
+                        hide-slide-text hide-slide-number hide-navigation-dots ></c-l-w-c-sliders>
+                       
+                  </span>
+                </div>
+
+                <div class="slds-col  slds-align_absolute-center">
+                  <span>
+                        <b><p class="slds-text-heading_large">{Posyear} {PosName}</p></b>
+                        <b><p class="slds-text-heading_large">{Posfun}</p></b>
+                        <b><p class="slds-text-heading_large"> {Posvariant}</p></b>
+                       
+                        <br/>
+                        <br/>
+                        <b><h1 style="font-size: xx-large;color: rgb(255, 0, 0);">₹ {Posamount}</h1></b>
+                  </span>
+                </div>
+               
+        </div>
+</lightning-card>  
+</template>

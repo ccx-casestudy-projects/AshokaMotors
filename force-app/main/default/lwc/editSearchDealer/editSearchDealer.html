@@ -1,0 +1,126 @@
+<template>
+    <lightning-card>
+        <c-header-comp></c-header-comp>
+    </lightning-card>
+    <lightning-card>
+       <!--Home Button-->
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col">
+                    <span  class="slds-p-left_medium">
+                        <lightning-icon icon-name="custom:custom107" size="x-medium" class="slds-size_1-of-9" onclick={CallMain} title="custom107">
+                        </lightning-icon>
+                   
+                      <b><label style="font-size: x-medium; padding: 0 3px ;vertical-align: bottom"  onclick={CallMain} >HOME</label></b>
+                    </span>
+                </div>
+                </div>
+        <!-- Search Edit Popup -->
+        <template if:true={showSearchPopup}>
+            <!-- Modal/Popup Box LWC starts here -->
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                    aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <!-- Search popup content -->
+                <div class="slds-modal__container">
+                    <!-- Modal/Popup Box LWC header here -->
+                    <header class="slds-modal__header">
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                            title="Close" onclick={closeModal}>
+                            <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse"
+                                size="small"></lightning-icon>
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate"
+                            style="font-size:x-large; font-weight:bold;color: rgb(170,26,7)">DEALER DETAILS FOR EDIT</h2>
+                    </header>
+                        <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+    
+                            <lightning-card>
+                            <b>
+                                <div class="slds-box">  
+                                    <c-search-look-up lookup-label="SEARCH DEALER COMPANY TO EDIT" object-api-name="Account" icon-name="standard:account"  
+                                      onrecordselection={onAccountSelection}></c-search-look-up>  
+                                  </div>  
+                            </b>
+                              <!--    <b><label for="id" style="font-size: medium; color: rgb(170,26,7)">SEARCH DEALER COMPANY TO EDIT</label>
+                                    <lightning-input fieldid="id" type="search" onchange={handleSearchCompany} value={dealerCompany}
+                                        placeholder="Search Dealer Name here"></lightning-input></b>
+                                <br />
+                                <b><label for="id" style="font-size: medium;color: rgb(170,26,7)">SEARCH DEALER PHONE TO EDIT</label>
+                                        <lightning-input fieldid="id" type="search" onchange={handleSearchNumber} value={dealerNum}
+                                            placeholder="Search Dealer Number here"></lightning-input></b>-->
+                                    <br /> 
+                                <lightning-button class="slds-align_absolute-center" label="Search Dealer Deatails" variant="brand" onclick={handlesearch}></lightning-button>
+                            </lightning-card>
+                        </div>
+                    </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </template>
+
+        <!-- Record Edit Form -->
+        <template if:true={showRecordForm}>
+            <div class="slds-align_absolute-center">
+                <b><h1 style="font-size: 24px; color: rgb(170,26,7);
+                        font-family:  Verdana, Arial, Helvetica, sans-serif;">DEALER DETAILS FOR EDIT</h1></b>
+            </div>
+
+            <div class="slds-grid slds-gutters">
+                <div class="slds-size_1-of-2 slds-align_absolute-center">
+                    <b>
+                    <lightning-record-edit-form object-api-name="Account" record-id={accountRecordId} onsuccess={handleSuccess}>
+                        <!-- Record edit form content -->
+                        
+                        <lightning-layout>
+                            <lightning-layout-item class="slds-p-around_xx-large">
+                                <div>
+                                    <label for="DealerDetails"><b>Dealer Name</b></label>                               
+                                   <lightning-output-field for="DealerDetails" variant="label-hidden" field-name="Name"></lightning-output-field>
+                                </div> 
+                                &ensp;&ensp;
+                                <div>
+                                    <label for="DealerDetails"><b>Dealer Company Name</b></label>                               
+                                   <lightning-input-field for="DealerDetails" variant="label-hidden" field-name="Company__c"></lightning-input-field>
+                                </div> 
+                                &ensp;
+        
+                                <div>
+                                    <b> <label for="DealerDetails">Dealer Address</label>                               
+                                   <lightning-input-field for="DealerDetails" variant="label-hidden" field-name="BillingAddress"></lightning-input-field></b>
+                                </div> 
+                                &ensp;&ensp; 
+                                
+                                </lightning-layout-item>
+    
+                               <lightning-layout-item class="slds-p-around_xx-large">
+                                <div>
+                                    <label for="DealerDetails"><b>Dealer Email</b></label>                               
+                                   <lightning-input-field for="DealerDetails" variant="label-hidden" field-name="Email__c"></lightning-input-field>
+                                </div> 
+                                &ensp;
+                                <div>
+                                    <label for="DealerDetails"><b>Dealer Phone Number</b></label>                               
+                                   <lightning-input-field for="DealerDetails" variant="label-hidden" field-name="Phone"></lightning-input-field>
+                                </div> 
+                                &ensp; 
+                                <div>
+                                    <label for="DealerDetails"><b>Dealer Aadhar Number</b></label>                               
+                                   <lightning-input-field for="DealerDetails" variant="label-hidden" field-name="AM_Customer_Aadhar_Number__c"></lightning-input-field>
+                                </div> 
+                                &ensp;
+                                <div>
+                                    <label for="DealerDetails"><b>Dealer Pancard Number</b></label>                               
+                                   <lightning-input-field for="DealerDetails" variant="label-hidden" field-name="AM_Customer_Pan_Number__c"></lightning-input-field>
+                                </div>                                                                              
+                            </lightning-layout-item>
+                        </lightning-layout>
+                        <div class="slds-m-top_medium">
+                            <lightning-button class="slds-align_absolute-center" type="submit" label="Save"
+                                variant="brand-outline" onchange={handleSuccess}></lightning-button>
+                        </div>
+                    </lightning-record-edit-form>
+                </b>
+                </div>
+            </div>
+        </template>
+    </lightning-card>
+</template>

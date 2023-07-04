@@ -1,0 +1,56 @@
+.cardClass{
+   
+    font-family:  Verdana, Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    color: rgb(170,26,7);
+   
+}
+
+
+.butnClass{
+    text-align: right;
+    padding-right: 10px;
+}
+.savebtn{
+    text-align: center;
+}
+
+.label{
+    text-align: center;
+    font-weight: bold;
+    color: rgb(170,26,7);
+}
+
+.hidden-field {
+    display: none;
+}
+
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(65, 61, 61);
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  margin-top: 10px;
+  max-height: 80%; /* Adjust this value as needed */
+  overflow-y: auto;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 60px;
+  right: 45px;
+  font-size: 60px;
+}

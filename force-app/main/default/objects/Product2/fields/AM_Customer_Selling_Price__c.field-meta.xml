@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AM_Customer_Selling_Price__c</fullName>
+    <externalId>false</externalId>
+    <formula>AM_Vehicle_Final_Amount__c + 0.15*(FinalAmount_beforeProfit__c-  AM_Profit__c )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>AM Customer Selling Price</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <type>Currency</type>
+</CustomField>

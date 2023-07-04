@@ -1,0 +1,49 @@
+<template>
+    <lightning-card>
+        <c-header-comp></c-header-comp>
+    </lightning-card>
+
+    <lightning-card>
+        <b>
+            <h1 class="slds-align_absolute-center cardClass">PAYMENT</h1>
+        </b>
+
+        <div class="slds-grid slds-gutters">
+
+            <div class="slds-col">
+                <span>
+                    <b><lightning-button icon-name="standard:home"
+                            class="slds-size_1-of-3 slds-float_left slds-p-left_medium" label="Home"
+                            onclick={goToMainScreen}></lightning-button></b>
+                </span>
+            </div>
+
+
+            <div class="slds-col slds-align_absolute-center">
+                <span>
+                    <lightning-card>
+
+                        <b><lightning-input style="width:350px" type="text" onchange={handleGivenPhoneNum}
+                                value={PhoneNum} label="Search Customer Via Phone Number"></lightning-input></b>
+                        <br />
+                        <b><lightning-input style="width:350px" type="text" onchange={handleVehicleNum}
+                                value={VehicleNum} label="Search Vehicle Via Registration Number"></lightning-input></b>
+                        <br />
+                        <br />
+                        <lightning-button class="slds-align_absolute-center" label="Search" variant="brand"
+                            onclick={handleSearch}></lightning-button>
+                    </lightning-card>
+
+                </span>
+            </div>
+
+            <div class="slds-col">
+                <span>
+
+                </span>
+            </div>
+
+        </div>
+
+    </lightning-card>
+</template>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AM_Vehicle_Repair_Sub_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>AM Vehicle Repair Sub Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>AM_Vehicle_Repair_Type__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Air Bags</fullName>
+                <default>false</default>
+                <label>Air Bags</label>
+            </value>
+            <value>
+                <fullName>AC Repair</fullName>
+                <default>false</default>
+                <label>AC Repair</label>
+            </value>
+            <value>
+                <fullName>Battery Work</fullName>
+                <default>false</default>
+                <label>Battery Work</label>
+            </value>
+            <value>
+                <fullName>Breaks</fullName>
+                <default>false</default>
+                <label>Breaks</label>
+            </value>
+            <value>
+                <fullName>Denting</fullName>
+                <default>false</default>
+                <label>Denting</label>
+            </value>
+            <value>
+                <fullName>Door Handles</fullName>
+                <default>false</default>
+                <label>Door Handles</label>
+            </value>
+            <value>
+                <fullName>Head Lights</fullName>
+                <default>false</default>
+                <label>Head Lights</label>
+            </value>
+            <value>
+                <fullName>Interior Lights</fullName>
+                <default>false</default>
+                <label>Interior Lights</label>
+            </value>
+            <value>
+                <fullName>Mirrors</fullName>
+                <default>false</default>
+                <label>Mirrors</label>
+            </value>
+            <value>
+                <fullName>Music System</fullName>
+                <default>false</default>
+                <label>Music System</label>
+            </value>
+            <value>
+                <fullName>Paint Required</fullName>
+                <default>false</default>
+                <label>Paint Required</label>
+            </value>
+            <value>
+                <fullName>Seat Covers</fullName>
+                <default>false</default>
+                <label>Seat Covers</label>
+            </value>
+            <value>
+                <fullName>Seats</fullName>
+                <default>false</default>
+                <label>Seats</label>
+            </value>
+            <value>
+                <fullName>Tyre Change</fullName>
+                <default>false</default>
+                <label>Tyre Change</label>
+            </value>
+            <value>
+                <fullName>Wheel Allignment</fullName>
+                <default>false</default>
+                <label>Wheel Allignment</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Mechanical</controllingFieldValue>
+            <valueName>AC Repair</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Mechanical</controllingFieldValue>
+            <valueName>Battery Work</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Mechanical</controllingFieldValue>
+            <valueName>Breaks</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Mechanical</controllingFieldValue>
+            <valueName>Door Handles</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Mechanical</controllingFieldValue>
+            <valueName>Head Lights</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Mechanical</controllingFieldValue>
+            <valueName>Interior Lights</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Mechanical</controllingFieldValue>
+            <valueName>Mirrors</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Mechanical</controllingFieldValue>
+            <valueName>Music System</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Mechanical</controllingFieldValue>
+            <valueName>Tyre Change</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Mechanical</controllingFieldValue>
+            <valueName>Wheel Allignment</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Accessories</controllingFieldValue>
+            <valueName>Air Bags</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Accessories</controllingFieldValue>
+            <valueName>Seat Covers</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Accessories</controllingFieldValue>
+            <valueName>Seats</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Rubbing And Polishing</controllingFieldValue>
+            <valueName>Denting</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Rubbing And Polishing</controllingFieldValue>
+            <valueName>Paint Required</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

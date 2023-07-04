@@ -1,0 +1,12 @@
+.this{
+    background-color: rgb(245, 243, 240);
+    width: 24px;
+    border: 10px solid rgb(9, 10, 9);
+    padding: 10px;
+    margin: 5px;
+}
+.title{
+    color: rgb(9, 10, 9);
+    block-size: auto;
+    text-align:center;
+}

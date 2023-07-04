@@ -1,0 +1,7 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	 <aura:attribute type="String" name="token"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+	<c:billingscreen token="{!v.token}" ></c:billingscreen>   
+     
+</aura:component>

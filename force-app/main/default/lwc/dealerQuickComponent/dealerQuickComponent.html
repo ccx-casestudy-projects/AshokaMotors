@@ -1,0 +1,41 @@
+<template>
+  <lightning-card>
+    <c-header-comp></c-header-comp>
+    </lightning-card>
+  <lightning-card class="medium-card">
+    <b>
+       <!--Home Button-->
+       <div class="slds-grid slds-gutters">
+        <div class="slds-col">
+            <span  class="slds-p-left_medium">
+              <lightning-icon icon-name="custom:custom107" size="x-medium" class="slds-size_1-of-9" onclick={CallMain} title="custom107">
+              </lightning-icon>
+           
+              <b><label style="font-size: x-medium; padding: 0 3px ;vertical-align: bottom"  onclick={CallMain} >HOME</label></b>
+            </span>
+        </div>
+          <!--Page Header-->
+        <div class="slds-col">
+            <span>
+              <b><h1  style="font-size:x-large ; color: rgb(170, 26, 7) ; text-decoration:underline" > DEALER QUICK ENTRY</h1></b>
+            </span>
+        </div>
+    </div>
+  </b>
+    <lightning-layout multiple-rows="true" class="input-container">
+      <lightning-layout-item size="12" class="slds-p-around_medium slds-grid_align-center">
+        <div class="input-fields">
+          <b><lightning-input label="First Name" name="FirstName" onchange={handleUserNameChange1}></lightning-input></b>
+          <b><lightning-input label="Last Name" name="LastName" onchange={handleUserNameChange2}></lightning-input></b>
+          <b><lightning-input label="Email" name="Email" onchange={handleUserEmailChange3}></lightning-input></b>
+          <b><lightning-input label="Company" name="Company" onchange={handleCompanyNameChange4}></lightning-input></b>
+          <b><lightning-input label="Phone Number" name="Phone Number" onchange={handleUserPhoneChange5}></lightning-input></b>
+        </div>
+      </lightning-layout-item>
+    </lightning-layout>
+    <div class="slds-align_absolute-center button-container">
+      <lightning-button label="Cancel" title="Non-primary action" onclick={handleClick1} class="slds-m-left_x-small"></lightning-button>
+      <lightning-button variant="brand" label="Save" title="Primary action with lighter look" onclick={CreateRec} class="slds-m-left_x-small"></lightning-button>
+    </div>
+  </lightning-card>
+</template>

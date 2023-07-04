@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AM_Engine_Name__c</fullName>
+    <externalId>false</externalId>
+    <label>AM Engine Name</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Voodoo</fullName>
+                <default>false</default>
+                <label>Voodoo</label>
+            </value>
+            <value>
+                <fullName>Hellephant</fullName>
+                <default>false</default>
+                <label>Hellephant</label>
+            </value>
+            <value>
+                <fullName>Cobra Jet</fullName>
+                <default>false</default>
+                <label>Cobra Jet</label>
+            </value>
+            <value>
+                <fullName>Hyper Pak</fullName>
+                <default>false</default>
+                <label>Hyper Pak</label>
+            </value>
+            <value>
+                <fullName>Turbo-Rocket</fullName>
+                <default>false</default>
+                <label>Turbo-Rocket</label>
+            </value>
+            <value>
+                <fullName>Super Hurricane</fullName>
+                <default>false</default>
+                <label>Super Hurricane</label>
+            </value>
+            <value>
+                <fullName>Sonoramic Commando</fullName>
+                <default>false</default>
+                <label>Sonoramic Commando</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,79 @@
+<template>
+
+
+ 
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col">
+            <span>
+
+               <b> <lightning-input class="slds-align_absolute-center"  type="text" label="Enter AM Customer Phone no To Search:" 
+            onchange={handleChange} value={input}  ></lightning-input></b>
+
+            <div class="slds-var-m-around_medium">
+                <lightning-button
+                  variant="brand"
+                  label=" Search AMCustomer Details"
+                  title=" Show Curtain Modal"
+                  onclick={handleShowModal}
+                  class="slds-m-left_x-small"
+                ></lightning-button>
+              </div>
+
+            </span>
+        </div>
+    </div>  
+    <br/>
+
+<div > 
+    <div data-id="curtainModal" id="curtainModal" class="overlay">
+        <lightning-button-icon
+           icon-name="utility:close"
+           variant="bare-inverse"
+           class="closebtn"
+           onclick={closeModal}
+           size="large"
+         ></lightning-button-icon>
+     
+         <div class="overlay-content">
+         
+         <section
+             role="dialog"
+             tabindex="-1"
+             aria-labelledby="modal-heading-01"
+             aria-modal="true"
+             aria-describedby="modal-content-id-1"
+           >
+             <div class="slds-modal__container">
+                
+    <div class="slds-p-around_medium">
+            <lightning-record-edit-form object-api-name="Account" record-id={dataid}>
+                
+                
+                <div class="slds-grid slds-wrap" style="background:rgb(255, 255, 255);  border:1px #151515 solid;">
+                    <div class="slds-col slds-size_1-of-2 slds-p-horizontal_medium">
+                     <b> <lightning-input-field field-name="Name" ></lightning-input-field></b>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2 slds-p-horizontal_medium">
+                    <b><lightning-input-field field-name="Phone" > </lightning-input-field></b>
+                    </div>
+                </div>
+                <br/>
+                <br/>
+                <lightning-button
+                size="x-large"
+                class="slds-align_absolute-center"
+                variant="brand"
+                type="submit"
+                name="update"
+                label="Update"
+                onclick={handlekick} >
+            </lightning-button>
+            
+            </lightning-record-edit-form>
+        </div>
+    </div>
+</section>
+</div>
+</div>
+</div>
+</template>

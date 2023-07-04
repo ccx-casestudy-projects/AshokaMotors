@@ -1,0 +1,12 @@
+<template>
+  <ul>
+    <template for:each={records} for:item="record">
+      <li key={record.Id}>
+        <lightning-button label={record.Name} variant="base" value={record.Id} onclick={handleClick}></lightning-button>
+        <template if:true={record.isSelected}>
+          <p class="slds-text-color_warning">Warning: Record is selected</p>
+        </template>
+      </li>
+    </template>
+  </ul>
+</template>

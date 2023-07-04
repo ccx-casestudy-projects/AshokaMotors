@@ -1,0 +1,49 @@
+<template>
+    <lightning-card>
+      <div>
+          <c-header-comp></c-header-comp>
+      </div>
+  </lightning-card>
+  
+  <lightning-card>
+  
+      <div class="slds-grid slds-gutters">
+          <div class="slds-col">
+              <span>
+                  <br/>
+                  <b><lightning-button class="slds-size_1-of-2 slds-float_left" label="<--Back"
+                          onclick={CallMain}></lightning-button></b>
+              </span>
+          </div>
+  
+  
+          <div class="slds-col">
+              <span>
+                  <b><lightning-input class="slds-size_1-of-2 slds-float_right" type="search" placeholder="Search"
+                          value={searchTerm} onchange={handleSearch}></lightning-input></b>
+              </span>
+          </div>
+      </div>
+        
+      <br />
+      
+  
+      <br />
+      <br />
+  
+      <div class="myTable">
+      <b><lightning-datatable key-field="Id"
+          data={cases} 
+          columns={columns}  
+          onrowaction={handleRowAction}
+          sorted-by={sortBy} 
+          sorted-direction={sortDirection} 
+          onsort={doSorting} 
+          onheaderaction={handleHeaderAction}
+          hide-checkbox-column="true">
+      </lightning-datatable></b>
+      </div>
+      
+  
+  </lightning-card>
+  </template>

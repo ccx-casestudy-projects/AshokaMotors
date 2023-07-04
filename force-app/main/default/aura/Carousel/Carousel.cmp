@@ -1,0 +1,54 @@
+<aura:component controller="CarouselImages" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <ltng:require styles="/resource/Slider/Slider/bootstrap.min.css"/>    
+    <ltng:require scripts="/resource/Slider/Slider/jquery.min.js,
+                           /resource/Slider/Slider/bootstrap.min.js"
+                  afterScriptsLoaded="{!c.loadPositions}"/>    
+    
+    <aura:attribute name="positions" type="AM_Vehicle_Image__c[]"/>
+    
+    <lightning:card >
+        <center>
+            <lightning:carousel disableAutoScroll="true">
+                <aura:iteration items="{!v.positions}" var="pos">
+                    <lightning:carouselImage
+                                             src="{!pos.AM_Vehicle_Main_Image__c}"
+                                             header="{!pos.AM_Vehicle__r.AM_Brand__c}"
+                                             alternativeText="First card accessible description."
+                                             data-target="#myCarousel"
+                                             data-slide-to="1">
+                    </lightning:carouselImage>
+                    <lightning:carouselImage
+                                             src="{!pos.AM_Vehicle_Exterior_Image_1__c}"
+                                             header="{!pos.AM_Vehicle__r.AM_Brand__c}"
+                                             alternativeText="Second card accessible description."
+                                             data-target="#myCarousel"
+                                             data-slide-to="2">
+                    </lightning:carouselImage>
+                    <lightning:carouselImage
+                                             src="{!pos.AM_Vehicle_Exterior_Image_2__c}"
+                                             header="{!pos.AM_Vehicle__r.AM_Brand__c}"
+                                             alternativeText="Second card accessible description."
+                                             data-target="#myCarousel"
+                                             data-slide-to="3">
+                    </lightning:carouselImage>
+                    <lightning:carouselImage
+                                             src="{!pos.AM_Vehicle_Interior_Image_1__c}"
+                                             header="{!pos.AM_Vehicle__r.AM_Brand__c}"
+                                             alternativeText="Second card accessible description."
+                                             data-target="#myCarousel"
+                                             data-slide-to="4">
+                    </lightning:carouselImage>
+                    <lightning:carouselImage
+                                             src="{!pos.AM_Vehicle_Interior_Image_2__c}"
+                                             header="{!pos.AM_Vehicle__r.AM_Brand__c}"
+                                             alternativeText="Second card accessible description."
+                                             data-target="#myCarousel"
+                                             data-slide-to="5">
+                    </lightning:carouselImage>
+                </aura:iteration>
+            </lightning:carousel>
+        </center>
+    </lightning:card>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.loadPositions}"/>
+</aura:component>

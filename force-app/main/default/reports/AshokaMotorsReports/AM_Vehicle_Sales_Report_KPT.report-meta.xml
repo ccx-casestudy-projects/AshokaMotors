@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Product2$AM_Vehicle_Registration_Number__c</field>
+    </columns>
+    <columns>
+        <field>Product2$AM_Vehicle_Model__c</field>
+    </columns>
+    <columns>
+        <field>Product2$AM_Vehicle_Color__c</field>
+    </columns>
+    <columns>
+        <field>Product2$AM_Fuel_Type__c</field>
+    </columns>
+    <columns>
+        <field>Product2$AM_Date_Of_Purchase__c</field>
+    </columns>
+    <columns>
+        <field>Product2.AM_Car_Sales__r$Am_Sold_Date__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Product2$AM_Purchase_Amount__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Product2.AM_Car_Sales__r$Am_Price_Sold__c</field>
+    </columns>
+    <format>Tabular</format>
+    <name>AM Vehicle Sales Report</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>vehicles_with_vehicle_sales__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Product2$AM_Date_Of_Purchase__c</dateColumn>
+        <interval>INTERVAL_CURRENT</interval>
+    </timeFrameFilter>
+</Report>

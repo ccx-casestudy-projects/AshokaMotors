@@ -1,0 +1,43 @@
+.slds-card {
+  
+  
+  margin-bottom: 20px;
+  border-color: rgb(5, 5, 5);
+}
+.slds-button_brand {
+    color: rgb(212, 58, 58);
+    text-decoration: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 5px;
+    padding: 0;
+  }
+  .slds-box{
+    box-shadow: rgba(255, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 8px;
+    padding-top: 10px;
+    width: 375px;
+    font-size: larger;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+   
+  }
+  .slds-image{
+    align-items: center;
+    border-radius: 15px;
+    width:270px; 
+    height:220px;
+  }
+  .bodyImg{
+    text-align: center;
+    margin-top: -25px;
+    font-size: large;
+    font-family: 'Times New Roman', Times, serif;
+  }

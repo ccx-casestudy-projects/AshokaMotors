@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <letterhead>CustomerRegistration</letterhead>
+    <name>GaneshChaturthi</name>
+    <style>formalLetter</style>
+    <subject>Best Wishes</subject>
+    <textOnly>Dear {!Account.Name},  Thanks &amp; Regards,
+Ashoka Motors Team.</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>
